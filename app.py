@@ -7,18 +7,21 @@ app.config['SECRET_KEY'] = '0b14be815347c845022cdeeb6c5937f6'
 posts = [
     {
       'author' : 'SANA',
-      'country' : 'Faso',
-      'major' : 'Electronic'   
+      'title' : 'Faso',
+      'content' : 'Electronic',
+      'date_posted' : '01/10/2020'  
     },
     {
       'author' : 'Aloute',
-      'country' : 'Burkina ',
-      'major' : 'Electronic'   
+      'title' : 'Burkina ',
+      'content' : 'Electronic',
+      'date_posted' : '01/03/2020'   
     },
     {
       'author' : 'SANA Aloute',
-      'country' : 'Burkina Faso',
-      'major' : 'Electronic'   
+      'title' : 'Burkina Faso',
+      'content' : 'Electronic',
+      'date_posted': '01/01/2020'   
     }
 
 ]
@@ -34,18 +37,23 @@ def home():
 def about():
     return render_template('about.html',posts=posts)
 
-@app.route('/register')
+@app.route('/register',methods=['POST', 'GET'])
 def register():
     form = RegistrationForm()
-    print(app.url_map)
     if form.validate_on_submit():
-        flash(f'Account created for {form.username.data}!', 'sucess')
+        flash(f'Account created for {form.username.data}!', 'success')
         return redirect(url_for('home'))
     return render_template('register.html', title = 'Register', form = form)
 
-@app.route('/login/')
+@app.route('/login/',methods=['POST', 'GET'])
 def login():
     form = LoginForm()
+    if form.validate_on_submit():
+        if form.email.data == 'admin@gmail.com' and form.password.data == 'password' :
+            flash('You have been logged in!', 'success')
+            return redirect(url_for('home'))
+        else:
+            flash('Unsuccessful log in. Please check username and password', 'danger')
     return render_template('login.html', title = 'Login', form = form)
 
 
