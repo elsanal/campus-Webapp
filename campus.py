@@ -100,7 +100,7 @@ def makepost():
             picture_path = os.path.join(app.root_path,'photos',picture)
             firebase.storage().child('Jesuis').child(picture).put(picture_path)
             url = firebase.storage().child('Jesuis').child(picture).get_url(None)
-            os.remove(picture_path)
+            #os.remove(picture_path)
         # url = fire.storage().getDownlaodurl
             ecole_ref = firestore.collection(u'Ecole')
             ecole_ref.document(u'time').set({
