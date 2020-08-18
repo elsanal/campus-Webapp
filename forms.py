@@ -1,6 +1,8 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField
+from wtforms import (StringField, PasswordField, SubmitField, 
+                     BooleanField, TextAreaField)
+from wtforms.fields.html5 import DateField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 from datetime import date, datetime
 import tempfile, os
@@ -10,7 +12,7 @@ today = date.today()
 date = today.strftime("%d/%m/%Y")
 
 now = datetime.now()
-time = now.strftime("%H : %M :%S")
+time = now.strftime("%H : %M")
 
 ###### Registration form
 
@@ -41,22 +43,27 @@ class PostForm(FlaskForm):
 
 ##########   Upload university  
 class UniversityForm(FlaskForm):
-    name = StringField('Name', validators = [DataRequired(), Length(min=2, max=20)])
+    name = StringField('University name', validators = [DataRequired(), Length(min=2,)])
     country = StringField('Country', validators = [DataRequired(), Length(min=2),])
-    description = TextAreaField('Description', validators = [DataRequired(), Length(min=50),])
-    majors = TextAreaField('Majors', validators = [DataRequired(), Length(min=50),])
-    logo = PasswordField('Confirm password', validators = [DataRequired(), EqualTo('password')])
-    web = StringField('Web url', validators = [DataRequired(), Length(min=2)])
-    deadline = StringField('Deadline', validators = [DataRequired(), Length(min=2)])     
+    description = TextAreaField('Description', validators = [DataRequired(),])
+    major = TextAreaField('Majors', validators = [DataRequired(), ])
+    logo = FileField("Upload logo", validators=[FileAllowed(['jpg', 'png', 'mp4','jpeg'])])
+    web = StringField('Website url', validators = [DataRequired(), Length(min=2),])
+    deadline = DateField('Deadline', format='%Y-%m-%d')
+    post_date = date
+    post_time = time    
     submit = SubmitField('Submit')
 
 ##########  Upload Scholarship     
 class ScholarshipForm(FlaskForm):
-    name = StringField('Name', validators = [DataRequired(), Length(min=2, max=20)])
+    name = StringField('Scholarship name', validators = [DataRequired(), Length(min=2,)])
     country = StringField('Country', validators = [DataRequired(), Length(min=2),])
-    description = TextAreaField('Description', validators = [DataRequired(), Length(min=50),])
-    advantage = TextAreaField('Advantages', validators = [DataRequired(), Length(min=50),])
-    logo = FileField('upload logo', validators = [FileAllowed(['jpg', 'png', 'jpeg'])])
-    web = StringField('Web url', validators = [DataRequired(), Length(min=2)])
-    deadline = StringField('Deadline', validators = [DataRequired(), Length(min=2)])     
+    description = TextAreaField('Description', validators = [DataRequired(),])
+    advantage = TextAreaField('Advantages', validators = [DataRequired(),])
+    level = StringField('level', validators = [DataRequired(),])
+    logo = FileField('upload logo', validators = [FileAllowed(['jpg', 'png', 'jpeg',])])
+    web = StringField('Website url', validators = [DataRequired(), Length(min=2)])
+    deadline = DateField('Deadline', format='%Y-%m-%d') 
+    post_date = date
+    post_time = time   
     submit = SubmitField('Submit')
