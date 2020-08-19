@@ -12,7 +12,8 @@ today = date.today()
 date = today.strftime("%d/%m/%Y")
 
 now = datetime.now()
-time = now.strftime("%H : %M")
+time = now.strftime('%H : %M')
+order = now.strftime('%y:%m:%d:%H:%M:%S')
 
 ###### Registration form
 
@@ -21,13 +22,14 @@ class RegisterForm(FlaskForm):
     email = StringField('Email', validators = [DataRequired(), Email(),])
     password = PasswordField('Password', validators = [DataRequired(),])
     confirm_password = PasswordField('Confirm password', validators = [DataRequired(), EqualTo('password')])
-    submit = SubmitField('Log In')
+    submit = SubmitField('Sign In')
 ###### Login form
 
 class LoginForm(FlaskForm):
     email = StringField('Email', validators = [DataRequired(), Email(),])
     password = PasswordField('Password', validators = [DataRequired(),])
     submit = SubmitField('Log In')
+       
 
 ########## Upload a post
 class PostForm(FlaskForm):
@@ -37,6 +39,7 @@ class PostForm(FlaskForm):
     submit = SubmitField('Submit')
     post_date = date
     post_time = time
+    post_order = order
   
     
     
@@ -49,9 +52,9 @@ class UniversityForm(FlaskForm):
     major = TextAreaField('Majors', validators = [DataRequired(), ])
     logo = FileField("Upload logo", validators=[FileAllowed(['jpg', 'png', 'mp4','jpeg'])])
     web = StringField('Website url', validators = [DataRequired(), Length(min=2),])
-    deadline = DateField('Deadline', format='%Y-%m-%d')
+    deadline = DateField('Deadline', format='%d/%m/%Y')
     post_date = date
-    post_time = time    
+    post_order = order    
     submit = SubmitField('Submit')
 
 ##########  Upload Scholarship     
@@ -63,7 +66,7 @@ class ScholarshipForm(FlaskForm):
     level = StringField('level', validators = [DataRequired(),])
     logo = FileField('upload logo', validators = [FileAllowed(['jpg', 'png', 'jpeg',])])
     web = StringField('Website url', validators = [DataRequired(), Length(min=2)])
-    deadline = DateField('Deadline', format='%Y-%m-%d') 
+    deadline = DateField('Deadline', format='%d/%m/%Y') 
     post_date = date
-    post_time = time   
+    post_order = order   
     submit = SubmitField('Submit')

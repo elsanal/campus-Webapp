@@ -37,9 +37,11 @@ database = firebase.database()
 @app.route("/",methods=['GET', 'POST'])
 @app.route("/index")
 def home():
-    
-    image = url_for('static', filename='img/background-image.jpg')
-    return render_template('index.html', posts = image)
+    data = firestore.collection(u'Photos_videos').get()
+    docs = []
+    for doc in data:
+        docs.append(doc.to_dict())
+    return render_template('index.html', docs = docs)
 
 @app.route("/index/about")
 def about():
@@ -96,8 +98,10 @@ def makeScho():
 ########## upload new University
 @app.route("/admin/makeUni",methods=['GET', 'POST'])
 def makeUni():
+    
     form = UniversityForm()
     if form.validate_on_submit():
+        print('this is a new uni')
         flash(f'sucessfully created', 'success')
         if form.logo.data:
             print('file pciked')
@@ -154,13 +158,14 @@ def save_logo(form_pic):
 def savePost_toDatabase(form, picture, picture_path):
     firebase.storage().child('PostImages').child(picture).put(picture_path)
     ImageUrl = firebase.storage().child('PostImages').child(picture).get_url(None)
-    ecole_ref = firestore.collection(u'Photos_videos')
-    ecole_ref.add({
+    docRef = firestore.collection(u'Photos_videos')
+    docRef.add({
     u'title' : u'{}'.format(request.form.get('title')),
     u'description' : u'{}'.format(request.form.get('description')),
     u'image' : ImageUrl,
     u'date'  : u'{}'.format(form.post_date),
     u'time' : u'{}'.format(form.post_time),
+    u'order': u'{}'.format(form.post_order),
     u'owner': u'eT1yo6RHBZNEz3smyKyzwZ0fQFV2',
     u'type' : u'photo',
     u'webUrl': u'webUrl',
@@ -169,39 +174,39 @@ def savePost_toDatabase(form, picture, picture_path):
 ########### Save an university
 
 def saveUni_toDatabase(form, logo, picture_path):
-    firebase.storage().child('univer').child(logo).put(picture_path)
-    logoUrl = firebase.storage().child('univer').child(logo).get_url(None)
-    ecole_ref = firestore.collection(u'univer')
-    ecole_ref.add({
+    firebase.storage().child('Universities').child(logo).put(picture_path)
+    logoUrl = firebase.storage().child('Universities').child(logo).get_url(None)
+    docRef = firestore.collection(u'Universities')
+    docRef.add({
     u'name' : u'{}'.format(request.form.get('name')),
     u'description' : u'{}'.format(request.form.get('description')),
     u'majors' : u'{}'.format(request.form.get('major')),
     u'country' : u'{}'.format(request.form.get('country')),
-    u'deadline' : u'{}'.format(request.form.get('deadline')),
+    u'deadline' : form.deadline.data.strftime('%d/%m/%Y'),
     u'level' : u'{}'.format(request.form.get('level')),
     u'logo' : logoUrl,
     u'webUrl' : u'{}'.format(request.form.get('web')),
     u'date'  : u'{}'.format(form.post_date),
-    u'time' : u'{}'.format(form.post_time),
+    u'order': u'{}'.format(form.post_order),
     })
 
 #############save a scholarship
 
 def saveScho_toDatabase(form, logo, picture_path):
-    firebase.storage().child('scholar').child(logo).put(picture_path)
-    logoUrl = firebase.storage().child('scholar').child(logo).get_url(None)
-    ecole_ref = firestore.collection(u'scholar')
-    ecole_ref.add({
+    firebase.storage().child('Scholarship').child(logo).put(picture_path)
+    logoUrl = firebase.storage().child('Scholarship').child(logo).get_url(None)
+    docRef = firestore.collection(u'Scholarship')
+    docRef.add({
     u'name' : u'{}'.format(request.form.get('name')),
     u'description' : u'{}'.format(request.form.get('description')),
     u'advantage' : u'{}'.format(request.form.get('advantage')),
     u'country' : u'{}'.format(request.form.get('country')),
-    u'deadline' : form.deadline.data.strftime('%Y-%m-%d'),
+    u'deadline' : form.deadline.data.strftime('%d/%m/%Y'),
     u'level' : u'{}'.format(request.form.get('level')),
     u'logo' : logoUrl,
     u'webUrl' : u'{}'.format(request.form.get('web')),
     u'date'  : u'{}'.format(form.post_date),
-    u'time' : u'{}'.format(form.post_time),
+    u'order': u'{}'.format(form.post_order),
     
     })    
 

@@ -1,0 +1,24 @@
+
+.photo{
+    background-color : red;
+    margin-left : 80px;
+    margin-right: 80px;
+    height: 500px;
+    border-radius: 50px;
+    width: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3),0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    
+}
+.photo ul{
+    display: inline-block;
+    align-content: left;
+}
+.photo ul li{
+    display: inline-block;
+    align-content: flex-start;
+}
+.photo ul li img{
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+}

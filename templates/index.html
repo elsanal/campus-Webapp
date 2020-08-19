@@ -1,14 +1,25 @@
 {% extends "/index/layout.html" %}
 {% block content %}
     <div>
-        <img src="{{ posts }}" alt="middle">
-        <img src="{{ posts }}" alt="middle">
-        <img src="{{ posts }}" alt="middle">
-        <img src="{{ posts }}" alt="middle">
-        <img src="{{ posts }}" alt="middle">
-        <img src="{{ posts }}" alt="middle">
-        <img src="{{ posts }}" alt="middle">
-        <img src="{{ posts }}" alt="middle">
+        {% for doc in docs %}
+            {% if doc['type'] == 'photo' %}
+                <div class="photo">
+                    <ul>
+                        <li><img src={{doc['image']}} alt=""></li>
+                        <li><h3>{{doc['title']}}</h3></li> 
+                    </ul>
+                </div>
+            {% elif doc['type'] == 'video' %}
+                <h4>Video</h4>
+            {% elif doc['type'] == 'web' %}
+                <h4>Web</h4> 
+            {% elif doc['type'] == 'youtube' %} 
+                <h4>Youtube</h4>
+            {% elif doc['type'] == 'text' %}
+                <h4>Text</h4> 
+            {% else %}        
+            {% endif%}
+        {% endfor %}
     </div>
  
 {% endblock content %}
