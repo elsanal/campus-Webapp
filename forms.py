@@ -5,6 +5,7 @@ from wtforms import (StringField, PasswordField, SubmitField,
 from wtforms.fields.html5 import DateField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 from datetime import date, datetime
+import calendar
 import tempfile, os
 import firebase
 
@@ -70,3 +71,6 @@ class ScholarshipForm(FlaskForm):
     post_date = date
     post_order = order   
     submit = SubmitField('Submit')
+    
+class CalendarForm(FlaskForm):
+    calendar = calendar.calendar(2017)    

@@ -1,24 +1,97 @@
+.article{
+    width: 100%;
+    background-color: darkgrey;
+    /* grid-template: 200px / 800px 100px;
+    grid-auto-rows: 200px;
+    grid-auto-flow: 500px; */
+    /* margin-top: 200px; */
+    /* border-radius: 20px;
+    margin-bottom: 0px; */
+    position: static ;
+    padding: 10px;;
+}
 
-.photo{
-    background-color : red;
-    margin-left : 80px;
-    margin-right: 80px;
-    height: 500px;
-    border-radius: 50px;
-    width: auto;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3),0 4px 8px 0 rgba(0, 0, 0, 0.3);
+ .grid{
+    display: grid;
+    padding-top: 10px;
+    margin-bottom: 25px;
+    background-color: white;
+    margin-left: 120px;
+    height: 200px;
+    width: 850px;
+    grid-template-columns: 150px 500px 200px;
+    border-radius: 20px;
+    overflow: hidden;
+} 
+
+.logo{
+    margin-left: 10px;
+}
+.logo img{
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+}
+.main-col{
+    width: 500px;
+    text-align: center;
+}
+.main-col .name{
+    width: 500px;
+    text-align: center;
+}
+.main-col .name a{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.main-col .description{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    font-weight: 500;
+    margin-top: 20px; 
+    margin-left: 15px;
+    color: black;
+    text-align: left;
+    width: 500px;
+    /* overflow: hidden; */
+}
+
+
+.apply{
+    text-align: start;
+    padding-top: 20px;
+}
+
+.apply p{
+    margin-left: 15px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-style: inherit;
+    color: red;
+    text-align: center;
     
 }
-.photo ul{
-    display: inline-block;
-    align-content: left;
+
+.apply h6{
+    margin-left: 10px;
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    color: black;
+    text-align: center;
 }
-.photo ul li{
-    display: inline-block;
-    align-content: flex-start;
-}
-.photo ul li img{
-    border-radius: 100px;
-    width: 100px;
-    height: 100px;
+.apply h6 a{
+    /* margin-right: 50px; */
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    color: black;
 }

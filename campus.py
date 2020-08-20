@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request,redirect, flash
-from forms import RegisterForm, LoginForm, PostForm, UniversityForm, ScholarshipForm
+from forms import RegisterForm, LoginForm, PostForm, UniversityForm, ScholarshipForm, CalendarForm
 import os, secrets
 from PIL import Image
 Image.MAX_IMAGE_PIXELS = None
@@ -45,7 +45,8 @@ def home():
 
 @app.route("/index/about")
 def about():
-    return render_template('index/about.html', title = "About")
+    form = CalendarForm
+    return render_template('index/about.html', title = "About", form = form)
 
 ################### authentification
 
@@ -61,14 +62,22 @@ def register():
 ################ Scholarship
 @app.route("/scholarship/scholarship",methods=['GET', 'POST'])
 def scholarship():
-    return render_template('scholarship/scholarship.html', title = "scholarship")
+    data = firestore.collection(u'Scholarship').get()
+    docs = []
+    for doc in data:
+        docs.append(doc.to_dict())
+    return render_template('scholarship/scholarship.html', title = "scholarship", docs = docs)
 
 
 
 #University
 @app.route("/university/university",methods=['GET', 'POST'])
 def university():
-    return render_template('university/university.html', title = "university")
+    data = firestore.collection(u'Universities').get()
+    docs = []
+    for doc in data:
+        docs.append(doc.to_dict())
+    return render_template('university/university.html', title = "university", docs = docs)
 
 
 

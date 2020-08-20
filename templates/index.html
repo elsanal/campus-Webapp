@@ -6,7 +6,21 @@
                 <div class="photo">
                     <ul>
                         <li><img src={{doc['image']}} alt=""></li>
-                        <li><h3>{{doc['title']}}</h3></li> 
+                        <li>
+                            <ul>
+                                <li>
+                                    <h3>
+                                        {{doc['title']}}
+                                    </h3>
+                                </li>
+                                <li>
+                                    <span>
+                                            <h6>country</h6>
+                                    </span>
+                                </li>
+                            </ul>
+                            
+                        </li> 
                     </ul>
                 </div>
             {% elif doc['type'] == 'video' %}
