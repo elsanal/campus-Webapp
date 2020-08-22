@@ -4,7 +4,8 @@ body{
     padding-right: 15%;
     margin-top: 0%;
     position: relative;
-    background-color: white;
+    background-color: indigo;
+    background-image:url(img/webBackgr.jpg)
     
 }
 .container{
@@ -14,7 +15,7 @@ body{
     margin-top: 0%;
 }
 .top-menu-bar{
-    height: 150px;
+    height: 200px;
     width: 100%;
     min-width: 600px;
     background-image: url(img/background-image.jpg);
@@ -92,12 +93,12 @@ align-content: center;
 }
 
 .content{
-    background-color:white;
+    /* background-color:white; */
     border: 0px solid black;
     margin-top: 0px;
     position: static;
     padding-bottom: 200px;
-    padding-top: 170px;
+    padding-top: 200px;
     width: 100%;
     min-width: 600px;
    

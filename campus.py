@@ -8,6 +8,7 @@ from firebase import storage, Firebase
 from firebase_admin import credentials
 from firebase_admin import firestore, storage
 from werkzeug.utils import secure_filename
+from random import random
 
 
 
@@ -37,11 +38,23 @@ database = firebase.database()
 @app.route("/",methods=['GET', 'POST'])
 @app.route("/index")
 def home():
-    data = firestore.collection(u'Photos_videos').get()
-    docs = []
-    for doc in data:
-        docs.append(doc.to_dict())
-    return render_template('index.html', docs = docs)
+    # random_index = random.radint(2,5)
+    dataScho = firestore.collection(u'Scholarship').get()
+    docsScho = []
+    for doc in dataScho:
+        docsScho.append(doc.to_dict())
+        
+    dataUni = firestore.collection(u'Universities').get()
+    docsUni = []
+    for doc in dataUni:
+        docsUni.append(doc.to_dict())
+        
+    dataJobStage = firestore.collection(u'JobsStages').get()
+    docsJobStage = []
+    for doc in dataJobStage:
+        docsJobStage.append(doc.to_dict())        
+    return render_template('index.html', docsJobStage = docsJobStage, 
+                           docsScho = docsScho, docsUni = docsUni)
 
 @app.route("/index/about")
 def about():
@@ -60,31 +73,48 @@ def register():
     return render_template('auth/register.html')
 
 ################ Scholarship
-@app.route("/scholarship/scholarship",methods=['GET', 'POST'])
+@app.route("/pages/scholarship",methods=['GET', 'POST'])
 def scholarship():
     data = firestore.collection(u'Scholarship').get()
     docs = []
     for doc in data:
         docs.append(doc.to_dict())
-    return render_template('scholarship/scholarship.html', title = "scholarship", docs = docs)
+    return render_template('pages/scholarship.html', title = "scholarship", docs = docs)
 
 
 
 #University
-@app.route("/university/university",methods=['GET', 'POST'])
+@app.route("/pages/university",methods=['GET', 'POST'])
 def university():
     data = firestore.collection(u'Universities').get()
     docs = []
     for doc in data:
         docs.append(doc.to_dict())
-    return render_template('university/university.html', title = "university", docs = docs)
+    return render_template('pages/university.html', title = "university", docs = docs)
 
 
 
 # make a post
-@app.route("/post/videos",methods=['GET', 'POST'])
-def videos():
-    return render_template('post/videos.html', title = "videos")
+@app.route("/pages/nouveaux",methods=['GET', 'POST'])
+def nouveaux():
+    data = firestore.collection(u'Scholarship').get()
+    docs = []
+    for doc in data:
+        docs.append(doc.to_dict())
+    return render_template('pages/nouveaux.html', title = "nouveaux", docs = docs)
+
+@app.route("/pages/jobs&stages",methods=['GET', 'POST'])
+def jobStage():
+    data = firestore.collection(u'Scholarship').get()
+    docs = []
+    for doc in data:
+        docs.append(doc.to_dict())
+    return render_template('pages/jobs&stages.html', title = "jobs&stages", docs = docs)
+
+@app.route("/pages/contacts",methods=['GET', 'POST'])
+def contact():
+    return render_template('pages/contacts.html', title = "contacts")
+
 
 
 ########  Admin upload to database

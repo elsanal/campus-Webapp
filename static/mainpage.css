@@ -1,6 +1,6 @@
 .article{
     width: 100%;
-    background-color: darkgrey;
+    background-color: indigo;
     /* grid-template: 200px / 800px 100px;
     grid-auto-rows: 200px;
     grid-auto-flow: 500px; */
@@ -25,13 +25,14 @@
 } 
 
 .logo{
-    margin-left: 10px;
+    margin-left: 10px;  
 }
 .logo img{
     width: 150px;
     height: 150px;
     border-radius: 150px;
 }
+
 .main-col{
     width: 500px;
     text-align: center;
@@ -94,4 +95,126 @@
     font-size: 16px;
     font-style: normal;
     color: black;
+}
+
+.contact{
+    background-color:whitesmoke;
+    width: 800px;
+    height: 500px;
+    border-radius:20px;
+    margin-left: 120px;
+    margin-bottom: 500px;
+    
+}
+
+.contact h3{
+    text-align: center;
+    padding-top: 40px;
+    margin-top: 50px;
+    font-weight: bolder;
+}
+
+.contact h5{
+
+    padding-left: 40px;
+    margin-top: 50px;
+}
+.main-and-side-bar{
+    display: grid;
+    grid-template-columns: 800px 300px ;
+}
+.index-card{
+    /* background-color:orange; */
+    display: grid;
+    grid-template-columns: 250px 250px 250px;
+    /* grid-template-rows: fit-content; */
+    margin-left: 80px;
+    width: 800px;
+    align-content: space-around;
+     
+}
+
+.index-card .index-card-col{
+    width: 210px;
+    height: max-content;
+    border-radius: 10px;
+    background-color:whitesmoke;
+    align-items: center;
+    margin-left: 25px;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+.index-card .index-card-col img{
+    width: 150px;
+    height: 150px; 
+    margin-bottom: 15px;
+}
+.index-card-col .name{
+    background-color:orange;
+    align-content: center;
+    text-align: center;
+    width: fit-content;
+    align-self:center;
+    margin-bottom: 5px;
+}
+.index-card-col .name a{
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    
+}
+.index-card-col h6{
+    font-weight: 500;
+    font-size: small;
+}
+.index-card-col h5{
+    font-weight: 600;
+    font-size: medium;
+    color: red;
+}
+
+
+
+
+
+
+
+
+
+
+.categorie{
+    margin-left: 105px;
+    margin-top: 50px;
+    margin-bottom: 5px;
+    width: 700px;
+    height: fit-content;
+    padding-left: 3px;
+    padding-top: 10px;
+    padding-bottom: 3px;
+    padding-right: 3px;
+    background-color:green;   
+}
+
+.categorie h6{
+    color: white;
+}
+.button-plus{
+    width: 210px;
+    min-height: 200;
+    border-radius: 10px;
+    background-color:green;
+    align-items: center;
+    align-content: center;
+    margin-left: 25px;
+    margin-bottom: 30px;
+    padding-top: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center; 
+}
+.button-plus h6 a{
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
 }
