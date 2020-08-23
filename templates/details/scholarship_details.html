@@ -1,0 +1,20 @@
+{% extends "index/layout.html" %}
+{% block content %}
+<div class="detail">
+    <div class="title">
+         <h4>{{document['name']}}</h4>
+    </div>
+    <div class="body">
+        <h6>Pays :{{document['country']}}</h6>
+        <h6>Niveaux :{{document['level']}}</h6>
+        <h6>Description :{{document['description']}}</h6>
+        <h6>Avantages :{{document['advantage']}}</h6>
+        <h6>conditions :{{document['conditon']}}</h6>
+        <h6>Comment postuler :{{document['apply']}}</h6>
+    </div>
+    <div class="button-apply">
+        <a href="#">Postuler</a>
+    </div>
+</div>
+  
+{% endblock content %}
