@@ -1,20 +1,36 @@
 {% extends "index/layout.html" %}
 {% block content %}
-<div class="detail">
-    <div class="title">
-         <h4>{{document['name']}}</h4>
+    <div class="article">
+        <div class="detail">
+            <div class="title">
+                 <p>{{document['name']}}</p>
+            </div>
+            <div class="body">
+                <div class="grid">
+                    <h4>Pays : </h4>
+                    <h3>{{document['country']}}</h3>
+                </div>
+                <div class="grid">
+                    <h4>Niveaux :</h4>
+                    <h3>{{document['level']}}</h3>
+                </div>
+                <div class="grid">
+                    <h4>Date limite :</h4>
+                    <h3>{{document['deadline']}}</h3>
+                </div>
+                <h6>Description :</h6>
+                <h5>{{document['description']}}</h5>
+                <h6>Avantages :</h6>
+                <h5>{{document['advantage']}}</h5>
+                <h6>conditions :</h6>
+                <h5>{{document['condition']}}</h5>
+                <h6>Comment postuler :</h6>
+                <h5>{{document['HowToApply']}}</h5>
+            </div>
+            <div class="button-apply">
+                <a href={{document['webUrl']}}>Postuler</a>
+            </div>
+        </div>
     </div>
-    <div class="body">
-        <h6>Pays :{{document['country']}}</h6>
-        <h6>Niveaux :{{document['level']}}</h6>
-        <h6>Description :{{document['description']}}</h6>
-        <h6>Avantages :{{document['advantage']}}</h6>
-        <h6>conditions :{{document['conditon']}}</h6>
-        <h6>Comment postuler :{{document['apply']}}</h6>
-    </div>
-    <div class="button-apply">
-        <a href="#">Postuler</a>
-    </div>
-</div>
   
 {% endblock content %}
