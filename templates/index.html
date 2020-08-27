@@ -54,7 +54,7 @@
                         {% for index in range(0,5)%}
                         <section class="index-card-col">
                             <div class="name">
-                                <h6><a href="{{url_for('scholarship_details',index = index)}}">{{docsUni[index]['name']}}</a></h6>
+                                <h6><a href="{{url_for('job_details',index = index)}}">{{docsUni[index]['name']}}</a></h6>
                             </div>
                             <img src={{docsUni[index]['logo']}} alt="">
                             <h6>Pays : {{docsUni[index]['country']}}</h6>
