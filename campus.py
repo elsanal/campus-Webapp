@@ -82,8 +82,6 @@ def scholarship():
         docs.append(doc.to_dict())
     return render_template('pages/scholarship.html', title = "scholarship", docs = docs)
 
-
-
 #University
 @app.route("/pages/university",methods=['GET', 'POST'])
 def university():
@@ -92,6 +90,21 @@ def university():
     for doc in data:
         docs.append(doc.to_dict())
     return render_template('pages/university.html', title = "university", docs = docs)
+
+############## Job and Stage
+@app.route("/pages/jobs&stages",methods=['GET', 'POST'])
+def jobStage():
+    data = firestore.collection(u'JobStage').get()
+    docs = []
+    for doc in data:
+        docs.append(doc.to_dict())
+    return render_template('pages/jobs&stages.html', title = "jobs&stages", docs = docs)
+
+############## Contacts
+
+@app.route("/pages/contacts",methods=['GET', 'POST'])
+def contact():
+    return render_template('pages/contacts.html', title = "contacts")
 
 
 ################## Details
@@ -114,33 +127,11 @@ def university_details(index):
 
 @app.route('/details/job_details/<int:index>',methods=['GET'])
 def job_details(index):
-    data = firestore.collection(u'jobStages').get()
+    data = firestore.collection(u'JobStage').get()
     docs = []
     for doc in data:
         docs.append(doc.to_dict())
     return render_template('details/job_details.html', document = docs[index])
-
-
-# make a post
-@app.route("/pages/nouveaux",methods=['GET', 'POST'])
-def nouveaux():
-    data = firestore.collection(u'Scholarship').get()
-    docs = []
-    for doc in data:
-        docs.append(doc.to_dict())
-    return render_template('pages/nouveaux.html', title = "nouveaux", docs = docs)
-
-@app.route("/pages/jobs&stages",methods=['GET', 'POST'])
-def jobStage():
-    data = firestore.collection(u'Scholarship').get()
-    docs = []
-    for doc in data:
-        docs.append(doc.to_dict())
-    return render_template('pages/jobs&stages.html', title = "jobs&stages", docs = docs)
-
-@app.route("/pages/contacts",methods=['GET', 'POST'])
-def contact():
-    return render_template('pages/contacts.html', title = "contacts")
 
 
 
@@ -177,7 +168,7 @@ def makeUni():
             return redirect(url_for('home'))
     return render_template('admin/makeUni.html',form = form)
 
-######### Make a new post
+######### Make a new Job
 @app.route("/admin/makeJob",methods=['GET', 'POST'])
 def makeJob():
     form = JobForm()
@@ -215,7 +206,7 @@ def saveUni_toDatabase(form, logo, picture_path):
     logoUrl = firebase.storage().child('Universities').child(logo).get_url(None)
     docRef = firestore.collection(u'Universities')
     docRef.add({
-    u'name' : u'{}'.format(request.form.get('name')),
+    u'name' : u'{}'.format(request.form.get('university_name')),
     u'description' : u'{}'.format(request.form.get('description')),
     u'majors' : u'{}'.format(request.form.get('major')),
     u'country' : u'{}'.format(request.form.get('country')),
@@ -238,6 +229,8 @@ def saveScho_toDatabase(form, logo, picture_path):
     u'description' : u'{}'.format(request.form.get('description')),
     u'advantage' : u'{}'.format(request.form.get('advantage')),
     u'country' : u'{}'.format(request.form.get('country')),
+    u'condition' : u'{}'.format(request.form.get('condition')),
+    u'how_to_apply' : u'{}'.format(request.form.get('how_to_apply')),
     u'deadline' : form.deadline.data.strftime('%d/%m/%Y'),
     u'level' : u'{}'.format(request.form.get('level')),
     u'logo' : logoUrl,
@@ -257,6 +250,8 @@ def saveJob_toDatabase(form, logo, picture_path):
     u'description' : u'{}'.format(request.form.get('description')),
     u'position' : u'{}'.format(request.form.get('position')),
     u'country' : u'{}'.format(request.form.get('country')),
+    u'condition' : u'{}'.format(request.form.get('condition')),
+    u'how_to_apply' : u'{}'.format(request.form.get('how_to_apply')),
     u'deadline' : form.deadline.data.strftime('%d/%m/%Y'),
     u'level' : u'{}'.format(request.form.get('level')),
     u'logo' : logoUrl,
@@ -266,8 +261,7 @@ def saveJob_toDatabase(form, logo, picture_path):
     
     
     
-      
-
+    
 if __name__ == "__main__":
     app.run(debug=True)
 

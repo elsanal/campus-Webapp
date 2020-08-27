@@ -8,7 +8,7 @@
             </div>
             <div class="main-col">
                 <div class="name">
-                    <a href={{doc['webUrl']}} >{{doc['name']}}</a>
+                    <a href="{{url_for('scholarship_details',index = loop.index-1)}}">{{doc['name']}}</a>
                 </div>
                 <div class="description">
                     {{doc['description']}}
@@ -18,7 +18,7 @@
                 <h6>Pays : {{doc['country']}}</h6>
                 <p> Date limite : </p>
                 <p> {{doc['deadline']}}</p>
-                <h6><a href={{doc['webUrl']}}>Cliquez ici pour plus d'informations.</a></h6>    
+                <h6><a href="{{url_for('scholarship_details',index = loop.index-1)}}">Cliquez ici pour plus d'informations.</a></h6>    
             </div>   
         </section>   
         {% endfor %}

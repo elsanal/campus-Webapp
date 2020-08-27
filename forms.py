@@ -34,18 +34,16 @@ class LoginForm(FlaskForm):
 
 ########## Upload a Job
 class JobForm(FlaskForm):
-    name = StringField('title', validators = [DataRequired(), Length(min=2)])
-    description = TextAreaField('description', validators = [DataRequired(), Length(min=2)])
+    company_name = StringField('Company name', validators = [DataRequired(), Length(min=2)])
+    description = TextAreaField('Description', validators = [DataRequired(), Length(min=2)])
     country = StringField('Country', validators = [DataRequired(), Length(min=2),])
     logo = FileField("Upload logo", validators=[FileAllowed(['jpg', 'png', 'mp4','jpeg'])])
     web = StringField('Website url', validators = [DataRequired(), Length(min=2),])
-    condtions = TextAreaField('Description', validators = [DataRequired(),])
-    position = TextAreaField('Description', validators = [DataRequired(),])
-    level = TextAreaField('Description', validators = [DataRequired(),])
+    condition = TextAreaField('Conditions', validators = [DataRequired(),])
+    position = TextAreaField('Positions', validators = [DataRequired(),])
+    how_to_apply = TextAreaField('How to apply', validators = [DataRequired(),])
     deadline = DateField('Deadline', format='%d/%m/%Y')
     submit = SubmitField('Submit')
-    post_date = date
-    post_time = time
     post_order = order
   
     
@@ -53,7 +51,7 @@ class JobForm(FlaskForm):
 
 ##########   Upload university  
 class UniversityForm(FlaskForm):
-    name = StringField('University name', validators = [DataRequired(), Length(min=2,)])
+    university_name = StringField('University name', validators = [DataRequired(), Length(min=2,)])
     country = StringField('Country', validators = [DataRequired(), Length(min=2),])
     description = TextAreaField('Description', validators = [DataRequired(),])
     major = TextAreaField('Majors', validators = [DataRequired(), ])
@@ -66,14 +64,15 @@ class UniversityForm(FlaskForm):
 
 ##########  Upload Scholarship     
 class ScholarshipForm(FlaskForm):
-    name = StringField('Scholarship name', validators = [DataRequired(), Length(min=2,)])
+    scholarship_name = StringField('Scholarship name', validators = [DataRequired(), Length(min=2,)])
     country = StringField('Country', validators = [DataRequired(), Length(min=2),])
     description = TextAreaField('Description', validators = [DataRequired(),])
-    condtions = TextAreaField('Description', validators = [DataRequired(),])
+    condition = TextAreaField('Conditions', validators = [DataRequired(),])
     advantage = TextAreaField('Advantages', validators = [DataRequired(),])
     level = StringField('level', validators = [DataRequired(),])
     logo = FileField('upload logo', validators = [FileAllowed(['jpg', 'png', 'jpeg',])])
     web = StringField('Website url', validators = [DataRequired(), Length(min=2)])
+    how_to_apply = TextAreaField('How to apply', validators = [DataRequired(),])
     deadline = DateField('Deadline', format='%d/%m/%Y') 
     post_date = date
     post_order = order   
