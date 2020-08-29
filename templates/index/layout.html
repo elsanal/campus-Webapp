@@ -30,21 +30,24 @@
 
         <header >
             <div class=" container middle top-menu-bar">
-                <div class="search-box">
+                <!-- <div class="search-box">
                     <ul>
                         <li><input type="text" class="form-control"></li>
                         <li><span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span></li>
                     </ul>
-                </div>  
+                </div>   -->
                 <div class="menu">
                     <ul>
                         <li><a href="{{url_for('home')}}">Accueil</a></li>
                         <li><a href="{{url_for('scholarship')}}">Bourses</a></li>
                         <li><a href="{{url_for('university')}}">Universités</a></li>
                         <li><a href="{{url_for('jobStage')}}">Jobs&Stages</a></li>
+                        <li><a href="{{url_for('scholarship_by_country')}}">Bourses/pays</a></li>
+                        <li><a href="{{url_for('best_uni_by_country')}}">Meilleures universités/pays</a></li>
                         <li><a href="{{url_for('contact')}}">Contacts</a></li>
-                        <li><a href="{{url_for('login')}}">Se connecter</a></li>
-                        <li><a href="{{url_for('register')}}">S'inscrire</a></li>
+
+                        <!-- <li><a href="{{url_for('login')}}">Se connecter</a></li>
+                        <li><a href="{{url_for('register')}}">S'inscrire</a></li> -->
                     </ul>
                 </div>
                 

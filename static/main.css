@@ -5,7 +5,7 @@ body{
     margin-top: 0%;
     position: relative;
     background-color: indigo;
-    background-image:url(img/webBackgr.jpg)
+    background-image:url(img/app_logo_1.png)
     
 }
 .container{
@@ -24,14 +24,15 @@ body{
     margin-bottom: 0px;
     position: fixed;
     background-size:contain; 
-    scale: 20px;
+    /* scale: 20px; */
     
 }
-.top-menu-bar .menu{
+.top-menu-bar.menu{
     width: fit-content;
     height:fit-content;
     padding-left: 0%;
-    margin-left: 30%;
+    position: fixed;
+    /* margin-left: 30%; */
     margin-top: 25px;
 }
 .top-menu-bar .menu ul {
@@ -39,11 +40,11 @@ body{
     padding-top: 15px;
     padding-bottom: 15px;
     padding-right: 15px;
-    background-color: black;
+    background-color: indigo;
 }
 .top-menu-bar .menu ul li{
 display: inline-block;
-margin-left: 10px;
+margin-left: 30px;
 text-align: center;
 vertical-align: middle;
 align-content: center;
@@ -52,8 +53,7 @@ align-content: center;
     color: white;
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-style:normal;
-    font-size:100%;
-
+    font-size:20px;
 }
 
 

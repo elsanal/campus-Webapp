@@ -1,0 +1,22 @@
+{% extends "/index/layout.html" %}
+{% block content %}
+    <div class="article">
+        <div class="main-and-side-bar">
+                <div>
+                    <div class="index-card">
+                        {% for country in countries %}
+                            <section class="index-card-col">
+                                <div class="name">
+                                    <a href="{{url_for('scholarship_country', country = country)}}">{{country}}</a>
+                                </div> 
+                            </section>
+                        {% endfor %}  
+                    </div>
+                </div>
+                <div>
+                    <h6>here for pubs</h6>
+                </div>
+        </div>
+    </div>
+ 
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends "/index/layout.html" %}
+{% block content %}
+    <div class="article">
+        <div class="main-and-side-bar">
+            <div>
+                <div>
+                    <div class="categorie">
+                        <h6>{{country }} : Les bourses disponibles pour les étudiants internationaux</h6>
+                    </div>
+                    <div class="index-card">
+                        {% for uni in country_uni%}
+                            <section class="index-card-col">
+                                <div class="name">
+                                    <a href="{{url_for('university_details',index = uni[1])}}">{{uni[0]['name']}}</a>
+                                </div>
+                                <img src={{uni[0]['logo']}} alt="">
+                                <h6>Pays : {{uni[0]['country']}}</h6>
+                                <h6>Date limite : </h6>
+                                <h5>{{uni[0]['deadline']}}</h5>
+                            </section>
+                        {% endfor %}
+                        <section class="button-plus">
+                            <h6><a href="{{url_for('scholarship')}}">Cliquez ici pour voir plus de bourses</a> </h6>
+                        </section>    
+                    </div>
+                </div>     
+            </div>
+            <div>
+                <!-- <h1>
+                Here is for Pubs
+                </h1> -->
+            </div> 
+        </div>    
+    </div>
+ 
+{% endblock content %}

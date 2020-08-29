@@ -10,6 +10,7 @@ from firebase_admin import firestore, storage
 from werkzeug.utils import secure_filename
 from random import random
 import json
+from countries import countries
 
 
 
@@ -106,6 +107,23 @@ def jobStage():
 def contact():
     return render_template('pages/contacts.html', title = "contacts")
 
+############## scholarship by country
+
+@app.route("/pages/scholarship_by_country",methods=['GET', 'POST'])
+def scholarship_by_country():
+    countries_list = countries
+    return render_template('pages/scholarship_by_country.html', countries = countries_list)
+
+############## university by countries
+
+@app.route("/pages/best_uni_by_country",methods=['GET', 'POST'])
+def best_uni_by_country():
+    countries_list = countries
+    return render_template('pages/best_uni_by_country.html', countries = countries_list)
+
+
+
+
 
 ################## Details
 
@@ -133,7 +151,39 @@ def job_details(index):
         docs.append(doc.to_dict())
     return render_template('details/job_details.html', document = docs[index])
 
+@app.route('/details/scholarship_country/<string:country>',methods=['GET'])
+def scholarship_country(country):
+    data = firestore.collection(u'Scholarship').get()
+    docs = []
+    countries = []
+    index = 0;
+    for fresh_data in data:
+        docs.append(fresh_data.to_dict())
+    for doc in docs:
+        current_doc = []
+        if str(doc['country']).upper() == country:
+            current_doc.append(doc)
+            current_doc.append(index)
+            countries.append(current_doc)
+        index +=1    
+    return render_template('details/scholarship_country.html', country_scho = countries, country = country)
 
+@app.route('/details/best_uni_country/<string:country>',methods=['GET'])
+def best_uni_country(country):
+    data = firestore.collection(u'Universities').get()
+    docs = []
+    countries = []
+    index = 0;
+    for fresh_data in data:
+        docs.append(fresh_data.to_dict())
+    for doc in docs:
+        current_doc = []
+        if str(doc['country']).upper() == country:
+            current_doc.append(doc)
+            current_doc.append(index)
+            countries.append(current_doc)
+        index +=1 
+    return render_template('details/best_uni_country.html', country_uni = countries, country = country)
 
            ########  Admin upload to database ################  
 
