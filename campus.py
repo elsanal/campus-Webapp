@@ -39,7 +39,7 @@ database = firebase.database()
 
 @app.route("/")
 @app.route("/index")
-def home():
+def index():
     # random_index = random.radint(2,5)
     dataScho = firestore.collection(u'Scholarship').get()
     docsScho = []
