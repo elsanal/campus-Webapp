@@ -1,1 +1,1 @@
-web: gunicorn campus.wsgi
+web: gunicorn index:server
