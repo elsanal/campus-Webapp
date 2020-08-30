@@ -37,7 +37,7 @@ database = firebase.database()
 
 ######################## index
 
-@app.route("/",methods=['GET', 'POST'])
+@app.route("/")
 @app.route("/index")
 def home():
     # random_index = random.radint(2,5)
