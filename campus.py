@@ -38,9 +38,8 @@ database = firebase.database()
 ######################## index
 
 @app.route("/")
-@app.route("/index")
-def index():
-    # random_index = random.radint(2,5)
+@app.route("/home")
+def home():
     dataScho = firestore.collection(u'Scholarship').get()
     docsScho = []
     for doc in dataScho:
@@ -55,7 +54,7 @@ def index():
     docsJobStage = []
     for doc in dataJobStage:
         docsJobStage.append(doc.to_dict())        
-    return render_template('index.html', docsJobStage = docsJobStage, 
+    return render_template('home.html', docsJobStage = docsJobStage, 
                            docsScho = docsScho, docsUni = docsUni)
 
 @app.route("/index/about")
