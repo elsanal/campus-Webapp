@@ -54,14 +54,14 @@
                         {% for index in range(0,5)%}
                         <section class="index-card-col">
                             <div class="name">
-                                <h6><a href="{{url_for('job_details',index = index)}}">{{docsJobStage[index]['name']}}</a></h6>
+                                <h6><a href="{{url_for('job_details',index = index)}}">{{docsUni[index]['name']}}</a></h6>
                             </div>
-                            <img src={{docsJobStage[index]['logo']}} alt="">
-                            <h6>Pays : {{docsJobStage[index]['country']}}</h6>
+                            <img src={{docsUni[index]['logo']}} alt="">
+                            <h6>Pays : {{docsUni[index]['country']}}</h6>
                             <h6>Niveaux : </h6>
-                            <h5>{{docsJobStage[index]['position']}}</h5>
+                            <h5>{{docsUni[index]['position']}}</h5>
                             <h6>Date limite : </h6>
-                            <h5>{{docsJobStage[index]['deadline']}}</h5>
+                            <h5>{{docsUni[index]['deadline']}}</h5>
                         </section>
                         {% endfor %}
                         <section class="button-plus">
