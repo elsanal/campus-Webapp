@@ -8,8 +8,6 @@ from firebase import storage, Firebase
 from firebase_admin import credentials
 from firebase_admin import firestore, storage
 from werkzeug.utils import secure_filename
-from random import random
-import json
 from countries import countries
 
 
