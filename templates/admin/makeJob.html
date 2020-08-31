@@ -3,8 +3,8 @@
     <div class="content-section">
         <form action="" method="POST" enctype="multipart/form-data">
             {{form.hidden_tag()}}
+            <legend class="bottom-border">Make a job post</legend>
             <fieldset class="form-group">
-                <legend class="bottom-border">Make a post</legend>
                 <div class="form-group">
                     {{form.company_name.label(class="form-control-label")}}
                     {{form.company_name(class="form-control form-control-label")}}
