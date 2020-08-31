@@ -38,22 +38,23 @@ database = firebase.database()
 @app.route("/",methods=['GET', 'POST'])
 @app.route("/index/home",methods=['GET', 'POST'])
 def home():
-    dataScho = firestore.collection(u'Scholarship').get()
-    docsScho = []
-    for doc in dataScho:
-        docsScho.append(doc.to_dict())
+    # dataScho = firestore.collection(u'Scholarship').get()
+    # docsScho = []
+    # for doc in dataScho:
+    #     docsScho.append(doc.to_dict())
         
-    dataUni = firestore.collection(u'Universities').get()
-    docsUni = []
-    for doc in dataUni:
-        docsUni.append(doc.to_dict())
+    # dataUni = firestore.collection(u'Universities').get()
+    # docsUni = []
+    # for doc in dataUni:
+    #     docsUni.append(doc.to_dict())
         
-    dataJobStage = firestore.collection(u'JobsStages').get()
-    docsJobStage = []
-    for doc in dataJobStage:
-        docsJobStage.append(doc.to_dict())        
-    return render_template('index/home.html', docsJobStage = docsJobStage, 
-                           docsScho = docsScho, docsUni = docsUni)
+    # dataJobStage = firestore.collection(u'JobsStages').get()
+    # docsJobStage = []
+    # for doc in dataJobStage:
+    #     docsJobStage.append(doc.to_dict())        
+    return render_template('index/home.html')
+                        #    , docsJobStage = docsJobStage, 
+                        #    docsScho = docsScho, docsUni = docsUni)
 
 @app.route("/index/about")
 def about():
