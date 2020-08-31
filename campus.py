@@ -11,7 +11,6 @@ from werkzeug.utils import secure_filename
 from countries import countries
 
 
-
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '20fe18bd517a11a1e26759b5664882b0'
 cred = credentials.Certificate("firebase-sdk.json")
@@ -29,7 +28,6 @@ firebaseConfig = {
             'measurementId': "G-WRNFW5KML9"
         }
 
-
 firebase = Firebase(firebaseConfig)
 database = firebase.database()
 
@@ -42,7 +40,6 @@ database = firebase.database()
 def home():       
     return render_template('index/home.html')
                        
-
 @app.route("/index/about")
 def about():
     form = CalendarForm
