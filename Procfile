@@ -1,1 +1,1 @@
-web: gunicorn campus:app
+web gunicorn campus:app
