@@ -29,7 +29,7 @@ cred = credentials.Certificate("/Users/sanaaloute/firebase-sdk.json")
 firebase_admin.initialize_app(cred)
 firestore = firestore.client()
 firebase = Firebase(firebaseConfig)
-database = firebase.database()
+# database = firebase.database()
 
 
 
