@@ -308,9 +308,7 @@ def saveJob_toDatabase(form, logo, picture_path):
     u'order': u'{}'.format(form.post_order),
     })     
     
-    
-    
-    
+      
 if __name__ == "__main__":
     app.run()
 
