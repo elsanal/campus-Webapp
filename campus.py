@@ -36,7 +36,7 @@ database = firebase.database()
 ######################## index
 
 @app.route("/",methods=['GET', 'POST'])
-@app.route("/home",methods=['GET', 'POST'])
+@app.route("/index/home",methods=['GET', 'POST'])
 def home():
     dataScho = firestore.collection(u'Scholarship').get()
     docsScho = []
@@ -52,7 +52,7 @@ def home():
     docsJobStage = []
     for doc in dataJobStage:
         docsJobStage.append(doc.to_dict())        
-    return render_template('home.html', docsJobStage = docsJobStage, 
+    return render_template('index/home.html', docsJobStage = docsJobStage, 
                            docsScho = docsScho, docsUni = docsUni)
 
 @app.route("/index/about")
@@ -308,6 +308,6 @@ def saveJob_toDatabase(form, logo, picture_path):
     
       
 if __name__ == "__main__":
-    app.run()
+    app.run(debug = True)
 
    
