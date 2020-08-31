@@ -22,7 +22,6 @@ Flask-Bootstrap==3.3.7.1
 Flask-Datepicker==0.13
 Flask-WTF==0.14.3
 gcloud==0.17.0
-google-api-core==1.22.0
 google-api-python-client==1.10.0
 google-auth==1.20.1
 google-auth-httplib2==0.0.4
