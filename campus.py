@@ -312,6 +312,6 @@ def saveJob_toDatabase(form, logo, picture_path):
     
     
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
 
    
