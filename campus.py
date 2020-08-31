@@ -14,6 +14,10 @@ from countries import countries
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '20fe18bd517a11a1e26759b5664882b0'
+cred = credentials.Certificate("firebase-sdk.json")
+firebase_admin.initialize_app(cred)
+firestore = firestore.client()
+
 firebaseConfig = {
             'apiKey': "AIzaSyCb3LNJ55ctSuAvmxQNHArY77bRtjlBdnw",
             'authDomain': "campus-494ee.firebaseapp.com",
@@ -25,9 +29,7 @@ firebaseConfig = {
             'measurementId': "G-WRNFW5KML9"
         }
 
-cred = credentials.Certificate("/Users/sanaaloute/firebase-sdk.json")
-firebase_admin.initialize_app(cred)
-# firestore = firestore.client()
+
 firebase = Firebase(firebaseConfig)
 database = firebase.database()
 
