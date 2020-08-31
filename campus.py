@@ -37,8 +37,8 @@ database = firebase.database()
 
 ######################## index
 
-@app.route("/")
-@app.route("/home")
+@app.route("/",methods=['GET', 'POST'])
+@app.route("/home",methods=['GET', 'POST'])
 def home():
     dataScho = firestore.collection(u'Scholarship').get()
     docsScho = []
