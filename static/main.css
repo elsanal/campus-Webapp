@@ -1,38 +1,31 @@
 body{
-    image-rendering: auto;
-    padding-left: 20%;
-    padding-right: 15%;
-    margin-top: 0%;
-    position: relative;
-    background-color: white;
-    background-image:url(img/app_logo_1.png)
+    
+    align-self: center;
+    background-color: #616161;
     
 }
 .container{
+    min-width: 800px;
 
-    margin-right: 0%;
-    margin-left: 0%;
-    margin-top: 0%;
 }
+
 .top-menu-bar{
-    height: 200px;
+    height: 300px;
     width: 100%;
     min-width: 600px;
-    background-image: url(img/background-image.jpg);
+    background-image: url(img/bar_logo.jpeg);
+    background-repeat: repeat-x;
     background-blend-mode: lighten;
     margin-top: 0px;
     margin-bottom: 0px;
-    position: fixed;
-    background-size:contain; 
-    /* scale: 20px; */
-    
+    /* position: fixed; */
+    background-size:contain;  
 }
 .top-menu-bar.menu{
     width: fit-content;
     height:fit-content;
     padding-left: 0%;
     position: fixed;
-    /* margin-left: 30%; */
     margin-top: 25px;
 }
 .top-menu-bar .menu ul {
@@ -74,8 +67,8 @@ align-content: center;
     border-radius: 40px;
 }
  .icon{
-     margin-top: 300px;
-     position: fixed;
+     /* margin-top: 100px;
+     position: fixed; */
  }
 
 
@@ -94,11 +87,11 @@ align-content: center;
 
 .content{
     /* background-color:white; */
-    border: 0px solid black;
+    border: 1px solid black;
     margin-top: 0px;
     position: static;
-    padding-bottom: 200px;
-    padding-top: 200px;
+    /* padding-bottom: 200px; */
+    /* padding-top: 200px; */
     width: 100%;
     min-width: 600px;
    

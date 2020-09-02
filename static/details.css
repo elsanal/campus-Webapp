@@ -1,5 +1,5 @@
 .detail{
-    background-color: white;
+    /* background-color: white; */
     width: 800px;
     height: fit-content;
     min-height: 1000px;
@@ -10,7 +10,9 @@
 .detail .title{
     text-align: center;
     font-weight: 900;
-    
+    text-decoration-line: underline;
+    background-color: red;
+    margin-bottom: 30px;
 }
 
 .detail .title p{
@@ -18,7 +20,8 @@
 }
 .detail .body .grid{
     display: grid;
-    margin: 0px;
+    /* background-color:white; */
+    margin: 10px;
     padding: 0px;
     grid-template-columns: auto auto;
     width: fit-content;
@@ -42,6 +45,7 @@
     font-style: normal;
     font-size: 20px;
     margin-left: 15px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .detail .body  h6{

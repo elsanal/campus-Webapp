@@ -1,6 +1,6 @@
 .article{
     width: 100%;
-    background-color: indigo;
+    background-color: white;
     position: static ;
     padding: 10px;;
 }
@@ -9,30 +9,30 @@
     display: grid;
     padding-top: 10px;
     margin-bottom: 25px;
-    background-color: white;
-    margin-left: 120px;
-    height: 200px;
-    width: 850px;
-    grid-template-columns: 150px 500px 200px;
+    background-color: whitesmoke;
+    height: 400px;
+    width: fit-content;
+    grid-template-columns: 100px 400px 200px;
     border-radius: 20px;
     overflow: hidden;
+    box-shadow: 0 4px 8px grey
 } 
 
 .logo{
     margin-left: 10px;  
 }
 .logo img{
-    width: 150px;
-    height: 150px;
-    border-radius: 150px;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
 }
 
 .main-col{
-    width: 500px;
+    width: 400px;
     text-align: center;
 }
 .main-col .name{
-    width: 500px;
+    width: 400px;
     text-align: center;
 }
 .main-col .name a{
@@ -52,14 +52,18 @@
     margin-left: 15px;
     color: black;
     text-align: left;
-    width: 500px;
+    width: 400px;
     
 }
 
 
 .apply{
+    background-color:yellow;
     text-align: start;
     padding-top: 20px;
+    margin-left: 10px;
+    height: fit-content;
+    box-shadow: 5px 5px 5px gray;
 }
 
 .apply p{
@@ -119,7 +123,7 @@
 .index-card{
     display: grid;
     grid-template-columns: 250px 250px 250px;
-    margin-left: 80px;
+    /* margin-left: 80px; */
     width: 800px;
     align-content: space-around;
      
@@ -134,6 +138,7 @@
     margin-left: 25px;
     margin-bottom: 30px;
     padding: 20px;
+    box-shadow: 5px 5px 5px grey;
 }
 
 .index-card .index-card-col img{
@@ -167,7 +172,7 @@
 
 
 .categorie{
-    margin-left: 105px;
+    margin-left: 30px;
     margin-top: 50px;
     margin-bottom: 5px;
     width: 700px;
@@ -200,4 +205,37 @@
     color: white;
     font-weight: bold;
     font-size: 30px;
+}
+
+.country-card{
+    display: grid;
+    grid-template-columns: 250px 250px 250px;
+    margin-left: 80px;
+    width: 800px;
+    align-content: space-around;
+     
+}
+
+.country-card .country-card-col{
+    width: 210px;
+    height: max-content;
+    border-radius: 10px;
+    background-color:whitesmoke;
+    align-items: center;
+    margin-left: 25px;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+.country-card-col .name{
+    align-content: center;
+    text-align: left;
+    width: fit-content;
+    align-self:center;
+    margin-bottom: 5px;
+}
+.country-card-col .name a{
+    font-size: 16px;
+    font-weight: bold;
+    color: black;   
 }

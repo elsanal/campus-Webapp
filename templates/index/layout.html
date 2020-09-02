@@ -28,48 +28,46 @@
 
     </head>
     <body>
-
-
-        <header >
-            <div class=" container middle top-menu-bar">
-                <div class="menu">
-                    <ul>
-                        <li><a href="{{url_for('home')}}">Accueil</a></li>
-                        <li><a href="{{url_for('scholarship')}}">Bourses</a></li>
-                        <li><a href="{{url_for('university')}}">Universités</a></li>
-                        <li><a href="{{url_for('jobStage')}}">Jobs&Stages</a></li>
-                        <li><a href="{{url_for('scholarship_by_country')}}">Bourses/pays</a></li>
-                        <li><a href="{{url_for('best_uni_by_country')}}">Meilleures universités/pays</a></li>
-                        <li><a href="{{url_for('contact')}}">Contacts</a></li>
-
-                        <!-- <li><a href="{{url_for('login')}}">Se connecter</a></li>
-                        <li><a href="{{url_for('register')}}">S'inscrire</a></li> -->
-                    </ul>
-                </div>
+        <div class="container">
+            <header >
+                <div class=" container middle top-menu-bar">
+                    <div class="menu">
+                        <ul>
+                            <li><a href="{{url_for('home')}}">Accueil</a></li>
+                            <li><a href="{{url_for('scholarship')}}">Bourses</a></li>
+                            <li><a href="{{url_for('university')}}">Universités</a></li>
+                            <li><a href="{{url_for('jobStage')}}">Jobs&Stages</a></li>
+                            <li><a href="{{url_for('scholarship_by_country')}}">Bourses/pays</a></li>
+                            <li><a href="{{url_for('best_uni_by_country')}}">Meilleures universités/pays</a></li>
+                            <li><a href="{{url_for('contact')}}">Contacts</a></li>
+    
+                            <!-- <li><a href="{{url_for('login')}}">Se connecter</a></li>
+                            <li><a href="{{url_for('register')}}">S'inscrire</a></li> -->
+                        </ul>
+                    </div>
+                    <div class=" middle icon">
+                        <ul>
+                            <li><a href="https://www.facebook.com/Top2TopBest" target="new"><img src="{{url_for('static', filename='img/facebook.jpg')}}"></a></li>
+                            <li><a href="https://chat.whatsapp.com/Hes9l5bH5Vg2xxFwU1mTBJ" target="new"><img src="{{url_for('static', filename='img/whatsapp.jpg')}}"></a></li>
+                            <li><a href="https://www.youtube.com/channel/UCznjjnUE9kvHlg_pBobDm5Q?view_as=subscriber" target="new"><img src="{{url_for('static', filename='img/youtube.jpg')}}"></a></li>
+                            <!-- <li><a href="{{url_for('contact')}}" target="new"><img src="{{url_for('static', filename='img/wechat.jpg')}}"></a></li>
+                            <li><a href="{{url_for('contact')}}" target="new"><img src="{{url_for('static', filename='img/gmail.jpg')}}"></li>    -->
+                        </ul>
+                    </div> 
+              </div>
                 
-          </div>
-            <div class=" middle icon">
-                <ul>
-                    <li><a href="https://www.facebook.com/Top2TopBest" target="new"><img src="{{url_for('static', filename='img/facebook.jpg')}}"></a></li>
-                    <li><a href="https://chat.whatsapp.com/Hes9l5bH5Vg2xxFwU1mTBJ" target="new"><img src="{{url_for('static', filename='img/whatsapp.jpg')}}"></a></li>
-                    <li><a href="https://www.youtube.com/channel/UCznjjnUE9kvHlg_pBobDm5Q?view_as=subscriber" target="new"><img src="{{url_for('static', filename='img/youtube.jpg')}}"></a></li>
-                    <!-- <li><a href="{{url_for('contact')}}" target="new"><img src="{{url_for('static', filename='img/wechat.jpg')}}"></a></li>
-                    <li><a href="{{url_for('contact')}}" target="new"><img src="{{url_for('static', filename='img/gmail.jpg')}}"></li>    -->
-                </ul>
+            </header>
+            <div class="content">
+                {% block content %}
+                {% endblock content %}
             </div>
-        </header>
-        <div class="container content">
-            {% block content %}
-            {% endblock content %}
-        </div>
-            
-                <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
-
-               
+                
+                    <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>        
+        </div>    
     </body>
 </html>
 
