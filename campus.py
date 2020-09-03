@@ -118,9 +118,31 @@ def best_uni_by_country():
     countries_list = countries
     return render_template('pages/best_uni_by_country.html', countries = countries_list)
 
+############ menu-bottom
+@app.route("/pages/how_to_get_scho",methods=['GET', 'POST'])
+def how_to_get_scho():
+    countries_list = countries
+    return render_template('pages/how_to_get_scho.html', countries = countries_list)
 
+@app.route("/pages/how_to_get_uni",methods=['GET', 'POST'])
+def how_to_get_uni():
+    countries_list = countries
+    return render_template('pages/how_to_get_uni.html', countries = countries_list)
 
+@app.route("/pages/myth_scho",methods=['GET', 'POST'])
+def myth_scho():
+    countries_list = countries
+    return render_template('pages/myth_scho.html', countries = countries_list)
 
+@app.route("/pages/top_uni",methods=['GET', 'POST'])
+def top_uni():
+    countries_list = countries
+    return render_template('pages/top_uni.html', countries = countries_list)
+
+@app.route("/pages/popular_scho",methods=['GET', 'POST'])
+def popular_scho():
+    countries_list = countries
+    return render_template('pages/popular_scho.html', countries = countries_list)
 
 ################## Details
 

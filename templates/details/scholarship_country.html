@@ -1,36 +1,28 @@
 {% extends "/index/layout.html" %}
 {% block content %}
     <div class="article">
-        <div class="main-and-side-bar">
+        <div class="article-col">
             <div>
-                <div>
-                    <div class="categorie">
-                        <h6>{{country }} : Les bourses disponibles pour les étudiants internationaux</h6>
+                <div class="categorie">
+                     <h5>Universités ouvertes</h5>
+                </div>
+                {% for scho in country_scho %}
+                <section class="grid">
+                    <div class="logo">
+                        <img src={{scho[0]['logo']}} alt="">
                     </div>
-                    <div class="index-card">
-                        {% for scho in country_scho%}
-                            <section class="index-card-col">
-                                <div class="name">
-                                    <a href="{{url_for('scholarship_details',index = scho[1])}}">{{scho[0]['name']}}</a>
-                                </div>
-                                <img src={{scho[0]['logo']}} alt="">
-                                <h6>Pays : {{scho[0]['country']}}</h6>
-                                <h6>Niveaux : </h6>
-                                <h5>{{scho[0]['level']}}</h5>
-                                <h6>Date limite : </h6>
-                                <h5>{{scho[0]['deadline']}}</h5>
-                            </section>
-                        {% endfor %}
-                        <section class="button-plus">
-                            <h6><a href="{{url_for('scholarship')}}">Cliquez ici pour voir plus de bourses</a> </h6>
-                        </section>    
-                    </div>
-                </div>     
+                    <div class="main-col">
+                        <div class="name">
+                            <a href="{{url_for('university_details',index = scho[1])}}">{{scho[0]['name']}}</a>
+                        </div>
+                        <div class="major">
+                            {{scho[0]['description']}}
+                        </div>
+                    </div> 
+                </section>
+                {% endfor %}
             </div>
-            <div>
-               
-            </div> 
-        </div>    
+        </div>
     </div>
  
 {% endblock content %}

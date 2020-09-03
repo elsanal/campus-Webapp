@@ -45,19 +45,37 @@
                             <li><a href="{{url_for('register')}}">S'inscrire</a></li> -->
                         </ul>
                     </div>
-                    <div class=" middle icon">
+                    <div class="search-box">
                         <ul>
-                            <li><a href="https://www.facebook.com/Top2TopBest" target="new"><img src="{{url_for('static', filename='img/facebook.jpg')}}"></a></li>
-                            <li><a href="https://chat.whatsapp.com/Hes9l5bH5Vg2xxFwU1mTBJ" target="new"><img src="{{url_for('static', filename='img/whatsapp.jpg')}}"></a></li>
-                            <li><a href="https://www.youtube.com/channel/UCznjjnUE9kvHlg_pBobDm5Q?view_as=subscriber" target="new"><img src="{{url_for('static', filename='img/youtube.jpg')}}"></a></li>
-                            <!-- <li><a href="{{url_for('contact')}}" target="new"><img src="{{url_for('static', filename='img/wechat.jpg')}}"></a></li>
-                            <li><a href="{{url_for('contact')}}" target="new"><img src="{{url_for('static', filename='img/gmail.jpg')}}"></li>    -->
+                            <li>
+                                <form>
+                                    <input type="text" name="Recherche" placeholder="Recherchez...">
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="menu-2">
+                        <ul>
+                            <li><a href="{{url_for('how_to_get_scho')}}">Comment avoir une bourse</a></li>
+                            <li><a href="{{url_for('how_to_get_uni')}}">Comment avoir une université</a></li>
+                            <li><a href="{{url_for('myth_scho')}}">Les mythes derriere les bourses</a></li>
+                            <li><a href="{{url_for('popular_scho')}}">Les bourses populaires</a></li>
+                            <li><a href="{{url_for('top_uni')}}">Top universités</a></li>
                         </ul>
                     </div> 
-              </div>
-                
+              </div>    
             </header>
             <div class="content">
+                <div class="icon">
+                    <ul>
+                        <li>Suivez nous sur les reseaux sociaux : </li>
+                        <li><a href="https://www.facebook.com/Top2TopBest" target="new"><img src="{{url_for('static', filename='img/facebook.jpg')}}"></a></li>
+                        <li><a href="https://chat.whatsapp.com/Hes9l5bH5Vg2xxFwU1mTBJ" target="new"><img src="{{url_for('static', filename='img/whatsapp.jpg')}}"></a></li>
+                        <li><a href="https://www.youtube.com/channel/UCznjjnUE9kvHlg_pBobDm5Q?view_as=subscriber" target="new"><img src="{{url_for('static', filename='img/youtube.jpg')}}"></a></li>
+                        <!-- <li><a href="{{url_for('contact')}}" target="new"><img src="{{url_for('static', filename='img/wechat.jpg')}}"></a></li>
+                        <li><a href="{{url_for('contact')}}" target="new"><img src="{{url_for('static', filename='img/gmail.jpg')}}"></li>    -->
+                    </ul>
+                </div>
                 {% block content %}
                 {% endblock content %}
             </div>

@@ -1,82 +1,91 @@
 {% extends "/index/layout.html" %}
 {% block content %}
     <div class="article">
-        <div class="main-and-side-bar">
+        <div class="article-col">
             <div>
-                <div>
-                    <div class="categorie">
-                        <h6>Les bourses nationales et internationales disponibles</h6>
-                    </div>
-                    <div class="index-card">
-                        {% for index in range(0,5)%}
-                            <section class="index-card-col">
-                                <div class="name">
-                                    <a href="{{url_for('scholarship_details',index = index)}}">{{docsScho[index]['name']}}</a>
+                <div class="categorie">
+                    <h5>Nouvelles bourses</h5>
+               </div>
+                    {% for index in range(0,6)%}
+                    <section class="grid">
+                        <div class="logo">
+                            <img src={{docsScho[index]['logo']}} alt="">
+                        </div>
+                        <div class="main-col">
+                            <div class="name">
+                                <a href="{{url_for('scholarship_details',index = index)}}">{{docsScho[index]['name']}}</a>
+                                <div class="deadline">
+                                    <h6> Date limite : {{docsScho[index]['deadline']}}</h6> 
                                 </div>
-                                <img src={{docsScho[index]['logo']}} alt="">
-                                <h6>Pays : {{docsScho[index]['country']}}</h6>
-                                <h6>Niveaux : </h6>
-                                <h5>{{docsScho[index]['level']}}</h5>
-                                <h6>Date limite : </h6>
-                                <h5>{{docsScho[index]['deadline']}}</h5>
-                            </section>
-                        {% endfor %}
-                        <section class="button-plus">
-                            <h6><a href="{{url_for('scholarship')}}">Cliquez ici pour voir plus de bourses</a> </h6>
-                        </section>    
-                    </div>
-                </div>
-                <div>
-                    <div class="categorie">
-                        <h6>Les Universités nationales et internationales</h6>
-                    </div>
-                    <div class="index-card">
-                        {% for index in range(0,5)%}
-                        <section class="index-card-col">
-                            <div class="name">
-                                <a href="{{url_for('university_details',index = index)}}">{{docsUni[index]['name']}}</a>
                             </div>
-                            <img src={{docsUni[index]['logo']}} alt="">
-                            <h6>Date limite : </h6>
-                            <h5>{{docsUni[index]['deadline']}}</h5>
-                        </section> 
-                        {% endfor %}
-                        <section class="button-plus">
-                            <h6><a href="{{url_for('university')}}">Cliquez ici pour vois plus d'universités</a></h6>
-                        </section>
-                    </div>
-                </div>
-                <div>
-                    <div class="categorie">
-                        <h6>Jobs et stages</h6>
-                    </div>
-                    <div class="index-card">
-                        {% for index in range(0,5)%}
-                        <section class="index-card-col">
-                            <div class="name">
-                                <h6><a href="{{url_for('job_details',index = index)}}">{{docsUni[index]['name']}}</a></h6>
+                            <div class="major">
+                                {{docsScho[index]['advantage']}}
                             </div>
-                            <img src={{docsUni[index]['logo']}} alt="">
-                            <h6>Pays : {{docsUni[index]['country']}}</h6>
-                            <h6>Niveaux : </h6>
-                            <h5>{{docsUni[index]['position']}}</h5>
-                            <h6>Date limite : </h6>
-                            <h5>{{docsUni[index]['deadline']}}</h5>
-                        </section>
-                        {% endfor %}
-                        <section class="button-plus">
-                            <h6><a href="{{url_for('jobStage')}}">Cliquez ici pour voir plus de jobs et stages</a></h6>
-                        </section>
-                    </div>
-                    
-                </div>      
+                        </div> 
+                    </section>
+                    {% endfor %}
             </div>
             <div>
-                <!-- <h1>
-                Here is for Pubs
-                </h1> -->
-            </div> 
-        </div>    
+                <div class="categorie">
+                     <h5>Universités ouvertes</h5>
+                </div>
+                {% for index in range(0,6) %}
+                <section class="grid">
+                    <div class="logo">
+                        <img src={{docsUni[index]['logo']}} alt="">
+                    </div>
+                    <div class="main-col">
+                        <div class="name">
+                            <a href="{{url_for('university_details',index = index)}}">{{docsUni[index]['name']}}</a>
+                        </div>
+                        <div class="major">
+                            {{docsUni[index]['description']}}
+                        </div>
+                    </div> 
+                </section>
+                {% endfor %}
+            </div>  
+            <div>
+                <div class="categorie">
+                     <h5>Universités ouvertes</h5>
+                </div>
+                {% for index in range(0,6) %}
+                <section class="grid">
+                    <div class="logo">
+                        <img src={{docsUni[index]['logo']}} alt="">
+                    </div>
+                    <div class="main-col">
+                        <div class="name">
+                            <a href="{{url_for('university_details',index = index)}}">{{docsUni[index]['name']}}</a>
+                        </div>
+                        <div class="major">
+                            {{docsUni[index]['description']}}
+                        </div>
+                    </div> 
+                </section>
+                {% endfor %}
+            </div>
+            <div>
+                <div class="categorie">
+                     <h5>Nos conseils</h5>
+                </div>
+                {% for index in range(0,6) %}
+                <section class="grid">
+                    <div class="logo">
+                        <img src={{docsUni[index]['logo']}} alt="">
+                    </div>
+                    <div class="main-col">
+                        <div class="name">
+                            <a href="{{url_for('university_details',index = index)}}">{{docsUni[index]['name']}}</a>
+                        </div>
+                        <div class="major">
+                            {{docsUni[index]['description']}}
+                        </div>
+                    </div> 
+                </section>
+                {% endfor %}
+            </div>          
+        </div> 
     </div>
  
 {% endblock content %}

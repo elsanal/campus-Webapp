@@ -1,28 +1,24 @@
 {% extends "index/layout.html" %}
 {% block content %}
     <div class="article">
-        <div class="detail">
-            <div class="title">
-                 <p>{{document['name']}}</p>
+        <section class="detail">
+            <div class="logo">
+                <img src={{document['logo']}} alt="">
             </div>
-            <div class="body">
-                <div class="grid">
-                    <h4>Pays : </h4>
-                    <h3>{{document['country']}}</h3>
+            <div class="mi-col">
+                <div class="title">
+                    {{document['name']}}
                 </div>
-                <div class="grid">
-                    <h4>Date limite :</h4>
-                    <h3>{{document['deadline']}}</h3>
+                <div class="description">
+                    {{document['description']}}
+                    {{document['majors']}}
                 </div>
-                <h6>Presentation :</h6>
-                <h5>{{document['description']}}</h5>
-                <h6>Filieres offertes :</h6>
-                <h5>{{document['majors']}}</h5>
             </div>
-            <div class="button-apply">
-                <a href={{document['webUrl']}}>Site web officiel</a>
-            </div>
-        </div>
+            <div class="apply">
+                <h6>Pays : {{document['country']}}</h6>
+                <h6><a href="{{document['webUrl']}}">Cliquez ici pour plus d'informations.</a></h6>    
+            </div>   
+        </section> 
     </div>
   
 {% endblock content %}

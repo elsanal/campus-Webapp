@@ -1,26 +1,40 @@
 .detail{
-    /* background-color: white; */
-    width: 800px;
+    display: grid;
+    background-color: white;
+    width: fit-content;
+    grid-template-columns: auto auto auto;
     height: fit-content;
-    min-height: 1000px;
-    margin-left: 120px;
+    margin-left: 60px;
     padding: 50px;
+    box-shadow: 0 4px 8px grey
 }
 
-.detail .title{
+.detail .logo{
+    margin-right: 10px;  
+}
+.detail .logo img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+}
+ .detail .mi-col{
+    width: 500px;
+}
+
+.mi-col .title{
     text-align: center;
     font-weight: 900;
     text-decoration-line: underline;
     background-color: red;
+    padding: 15px;
     margin-bottom: 30px;
 }
 
-.detail .title p{
+.mi-col .title p{
     font-size: 25px;
 }
-.detail .body .grid{
+.mi-col .description{
     display: grid;
-    /* background-color:white; */
     margin: 10px;
     padding: 0px;
     grid-template-columns: auto auto;
@@ -29,42 +43,22 @@
     padding: 20px;
 }
 
-.detail .body .grid h3{
-    color: red;
-    font-style: italic;
-    font-size: 16px;
-    margin-left: 15px;
-}
 
-.detail .body .grid h4{
-    color: black;
-    font-style: normal;
-}
-
-.detail .body h5{
-    font-style: normal;
-    font-size: 20px;
-    margin-left: 15px;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-.detail .body  h6{
-    font-style: normal;
-    font-size: 25px;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.detail .button-apply{
-    width: 700px;
+.detail .apply{
+    width: fit-content;
     height: fit-content;
-    margin-top: 50px;
-    background-color: green;
-    text-align: center;
-    font-size: 30px;
+    margin-top: 120px;
+    text-align: left;
+    font-size: 20px;
+    border: 2px solid black;
     
 }
 
-.detail .button-apply a{
+.detail .apply h6{
     color: black;
+    text-align: left;
+}
+.detail .apply p{
+    color: red;
+    text-align: left;
 }

@@ -4,19 +4,16 @@
         <div class="article-col">
             <div>
                 <div class="categorie">
-                     <h5>Universités ouvertes</h5>
+                     <h5>Comment avoir une bonne bourse</h5>
                 </div>
-                {% for uni in country_uni %}
+                {% for scho in country_scho %}
                 <section class="grid">
-                    <div class="logo">
-                        <img src={{uni[0]['logo']}} alt="">
-                    </div>
                     <div class="main-col">
                         <div class="name">
-                            <a href="{{url_for('university_details',index = uni[1])}}">{{uni[0]['name']}}</a>
+                            <h6> title</h6>
                         </div>
                         <div class="major">
-                            {{uni[0]['description']}}
+                            <h6>Description</h6>
                         </div>
                     </div> 
                 </section>
@@ -24,5 +21,5 @@
             </div>
         </div>
     </div>
- 
 {% endblock content %}
+
