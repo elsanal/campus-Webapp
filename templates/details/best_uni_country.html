@@ -3,24 +3,34 @@
     <div class="article">
         <div class="article-col">
             <div>
-                <div class="categorie">
-                     <h5>Universités ouvertes</h5>
-                </div>
-                {% for uni in country_uni %}
-                <section class="grid">
-                    <div class="logo">
-                        <img src={{uni[0]['logo']}} alt="">
+                {%if country_uni|length>0 %}
+                    <div class="categorie">
+                            <h5>Universités disponibles</h5>
                     </div>
-                    <div class="main-col">
-                        <div class="name">
-                            <a href="{{url_for('university_details',index = uni[1])}}">{{uni[0]['name']}}</a>
+                    {% for uni in country_uni %}
+                    <section class="grid">
+                        <div class="logo">
+                            <img src={{uni[0]['logo']}} alt="">
                         </div>
+                        <div class="main-col">
+                            <div class="name">
+                                <a href="{{url_for('university_details',index = uni[1])}}">{{uni[0]['name']}}</a>
+                            </div>
+                            <div class="major">
+                                {{uni[0]['description']}}
+                            </div>
+                        </div> 
+                    </section>
+                    {% endfor %}
+                {% else %}
+                <section class="grid">
+                    <div class="main-col">
                         <div class="major">
-                            {{uni[0]['description']}}
+                            Il n'y a pas d'universités disponibles pour le moment, revenez plus tard. 
                         </div>
                     </div> 
                 </section>
-                {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>

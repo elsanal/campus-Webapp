@@ -1,7 +1,12 @@
 body{
     
     align-self: center;
-    background-color: #616161;
+    background-color: #3F51B5;
+    background-image: url(img/body_back2.jpg);
+    background-position-x: right;
+    background-position-y: center;
+    position: relative;
+
     
 }
 .container{

@@ -3,24 +3,34 @@
     <div class="article">
         <div class="article-col">
             <div>
-                <div class="categorie">
-                     <h5>Universités ouvertes</h5>
-                </div>
-                {% for scho in country_scho %}
-                <section class="grid">
-                    <div class="logo">
-                        <img src={{scho[0]['logo']}} alt="">
-                    </div>
-                    <div class="main-col">
-                        <div class="name">
-                            <a href="{{url_for('university_details',index = scho[1])}}">{{scho[0]['name']}}</a>
+                {%if country_scho|length > 0 %}
+                        <div class="categorie">
+                                <h5>Les bourses disponibles</h5>
                         </div>
+                        {% for scho in country_scho %}
+                        <section class="grid">
+                            <div class="logo">
+                                <img src={{scho[0]['logo']}} alt="">
+                            </div>
+                            <div class="main-col">
+                                <div class="name">
+                                    <a href="{{url_for('university_details',index = scho[1])}}">{{scho[0]['name']}}</a>
+                                </div>
+                                <div class="major">
+                                    {{scho[0]['description']}}
+                                </div>
+                            </div> 
+                        </section>
+                        {% endfor %}
+                {% else %}
+                <section class="grid">
+                    <div class="main-col">
                         <div class="major">
-                            {{scho[0]['description']}}
+                            Il n'y a pas de bourses disponibles pour le moment, revenez plus tard. 
                         </div>
                     </div> 
                 </section>
-                {% endfor %}
+                {% endif%}
             </div>
         </div>
     </div>
