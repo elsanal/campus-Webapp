@@ -57,6 +57,7 @@ class UniversityForm(FlaskForm):
     major = TextAreaField('Majors', validators = [DataRequired(), ])
     logo = FileField("Upload logo", validators=[FileAllowed(['jpg', 'png', 'mp4','jpeg'])])
     web = StringField('Website url', validators = [DataRequired(), Length(min=2),])
+    top = TextAreaField('is it top?', validators = [DataRequired(),])
     deadline = DateField('Deadline', format='%d/%m/%Y')
     post_date = date
     post_order = order    
@@ -73,6 +74,7 @@ class ScholarshipForm(FlaskForm):
     logo = FileField('upload logo', validators = [FileAllowed(['jpg', 'png', 'jpeg',])])
     web = StringField('Website url', validators = [DataRequired(), Length(min=2)])
     how_to_apply = TextAreaField('How to apply', validators = [DataRequired(),])
+    popular = TextAreaField('is it popular?', validators = [DataRequired(),])
     deadline = DateField('Deadline', format='%d/%m/%Y') 
     post_date = date
     post_order = order   

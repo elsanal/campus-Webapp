@@ -4,16 +4,33 @@
         <div class="article-col">
             <div>
                 <div class="categorie">
-                     <h5>Comment avoir une bonne bourse</h5>
+                     <h5>Les mythes derriere les bourses</h5>
                 </div>
-                {% for scho in country_scho %}
-                <section class="grid">
+                {% for index in range(0,(((myth|length)/2)|round|int)) %}
+                <section class="grid2">
                     <div class="main-col">
                         <div class="name">
-                            <h6> title</h6>
+                            <h6>{{myth[index]['title']}}</h6>
                         </div>
                         <div class="major">
-                            <h6>Description</h6>
+                            <h6>{{myth[index]['description']}}</h6>
+                        </div>
+                    </div> 
+                </section>
+                {% endfor %}
+            </div>
+            <div>
+                <div class="categorie">
+                     <h5>Les mythes derriere les bourses</h5>
+                </div>
+                {% for index in range((((myth|length)/2)|round|int),(myth|length) ) %}
+                <section class="grid2">
+                    <div class="main-col">
+                        <div class="name">
+                            <h6>{{myth[index]['title']}}</h6>
+                        </div>
+                        <div class="major">
+                            <h6>{{myth[index]['description']}}</h6>
                         </div>
                     </div> 
                 </section>
@@ -22,3 +39,4 @@
         </div>
     </div>
 {% endblock content %}
+

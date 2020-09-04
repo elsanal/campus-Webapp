@@ -28,6 +28,22 @@
     overflow: hidden;
     box-shadow: 0 4px 8px grey
 } 
+
+.article-col .grid2{
+    display: grid;
+    padding: 15px;
+    margin-bottom: 25px;
+    margin-left: 35px;
+    background-color: whitesmoke;
+    height: fit-content;
+    width: fit-content;
+    grid-template-columns: auto auto;
+    grid-auto-columns: auto auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px grey
+} 
+
 .article-col .categorie{
     margin-left: 35px;
     margin-bottom: 5px;
@@ -159,15 +175,15 @@
 
 .country-card{
     display: grid;
-    grid-template-columns: 250px 250px 250px;
-    margin-left: 80px;
-    width: 800px;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-auto-columns: auto auto auto auto auto auto;
+    width: fit-content;
     align-content: space-around;
      
 }
 
 .country-card .country-card-col{
-    width: 210px;
+    width: fit-content;
     height: max-content;
     border-radius: 10px;
     background-color:whitesmoke;
@@ -189,3 +205,42 @@
     font-weight: bold;
     color: black;   
 }
+
+.country-card-col .name a:hover{
+    background-color:red;
+    color: black;   
+}
+
+.btnDropdown{
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer; 
+}
+
+.dropdown{
+    display: none;
+    position: relative;
+}
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content title a{
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+  }

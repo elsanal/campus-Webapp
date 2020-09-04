@@ -4,27 +4,50 @@
         <div class="article-col">
             <div>
                 <div class="categorie">
-                     <h5>Top meilleures bourses</h5>
+                     <h5>Top bourses populaires</h5>
                 </div>
-                {% for doc in docs %}
-                <section class="grid">
+                {% for index in range(0, (((famous_uni|length)/2)|round|int)) %}
+                <section class="grid2">
                     <div class="logo">
-                        <img src={{doc['logo']}} alt="">
+                        <img src={{famous_uni[index][0]['logo']}} alt="">
                     </div>
                     <div class="main-col">
                         <div class="name">
-                            <a href="{{url_for('scholarship_details',index = loop.index-1)}}">{{doc['name']}}</a>
+                            <a href="{{url_for('university_details',index = famous_uni[index][1])}}">{{famous_uni[index][0]['name']}}</a>
                             <div class="deadline">
-                                <h6>date limite : {{doc['deadline']}}</h6>
+                                <h6>date limite : {{famous_uni[index][0]['deadline']}}</h6>
                             </div> 
                         </div>
                         <div class="major">
-                            {{doc['advantage']}}
+                            {{famous_uni[index][0]['description']}}
                         </div>
                     </div>
                 </section>
                 {% endfor %}
-            </div>       
+            </div>
+            <div>
+                <div class="categorie">
+                     <h5>Top bourses populaires</h5>
+                </div>
+                {% for index in range((((famous_uni|length)/2)|round|int),(famous_uni|length) ) %}
+                <section class="grid2">
+                    <div class="logo">
+                        <img src={{famous_uni[index][0]['logo']}} alt="">
+                    </div>
+                    <div class="main-col">
+                        <div class="name">
+                            <a href="{{url_for('university_details',index = famous_uni[index][1])}}">{{famous_uni[index][0]['name']}}</a>
+                            <div class="deadline">
+                                <h6>date limite : {{famous_uni[index][0]['deadline']}}</h6>
+                            </div> 
+                        </div>
+                        <div class="major">
+                            {{famous_uni[index][0]['description']}}
+                        </div>
+                    </div>
+                </section>
+                {% endfor %}
+            </div>
         </div>  
     </div>
  

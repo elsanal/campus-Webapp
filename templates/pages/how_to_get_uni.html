@@ -4,16 +4,33 @@
         <div class="article-col">
             <div>
                 <div class="categorie">
-                     <h5>Comment avoir une bonne bourse</h5>
+                     <h5>Comment avoir une université</h5>
                 </div>
-                {% for scho in country_scho %}
-                <section class="grid">
+                {% for index in range(0,(((how_to_get_uni|length)/2)|round|int)) %}
+                <section class="grid2">
                     <div class="main-col">
                         <div class="name">
-                            <h6> title</h6>
+                            <h6>{{how_to_get_uni[index]['title']}}</h6>
                         </div>
                         <div class="major">
-                            <h6>Description</h6>
+                            <h6>{{how_to_get_uni[index]['description']}}</h6>
+                        </div>
+                    </div> 
+                </section>
+                {% endfor %}
+            </div>
+            <div>
+                <div class="categorie">
+                    <h5>Comment avoir une université</h5>
+               </div>
+                {% for index in range((((how_to_get_uni|length)/2)|round|int),(how_to_get_uni|length) ) %}
+                <section class="grid2">
+                    <div class="main-col">
+                        <div class="name">
+                            <h6>{{how_to_get_uni[index]['title']}}</h6>
+                        </div>
+                        <div class="major">
+                            <h6>{{how_to_get_uni[index]['description']}}</h6>
                         </div>
                     </div> 
                 </section>
@@ -22,3 +39,4 @@
         </div>
     </div>
 {% endblock content %}
+

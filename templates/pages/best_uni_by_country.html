@@ -1,22 +1,17 @@
 {% extends "/index/layout.html" %}
 {% block content %}
     <div class="article">
-        <div class="main-and-side-bar">
-                <div>
-                    <div class="country-card">
-                        {% for country in countries %}
-                            <section class="country-card-col">
-                                <div class="name">
-                                    <a href="{{url_for('best_uni_country', country = country)}}">{{country}}</a>
-                                </div> 
-                            </section>
-                        {% endfor %}  
-                    </div>
-                </div>
-                <div>
-                    <h6>here for pubs</h6>
-                </div>
+        <div class="categorie">
+            <h6>Selectionnez un pays pour voir les offres d'universités disponibles </h6>
+        </div>
+        <div class="country-card">
+            {% for country in countries %}
+                <section class="country-card-col">
+                    <div class="name">
+                        <a href="{{url_for('best_uni_country', country = country)}}">{{country}}</a>
+                    </div> 
+                </section>
+            {% endfor %}  
         </div>
     </div>
- 
 {% endblock content %}

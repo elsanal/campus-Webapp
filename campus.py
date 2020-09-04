@@ -9,6 +9,7 @@ from firebase_admin import credentials
 from firebase_admin import firestore, storage
 from werkzeug.utils import secure_filename
 from countries import countries
+from advice import get_scho, get_uni, delete_myth
 
 
 app = Flask(__name__)
@@ -121,28 +122,49 @@ def best_uni_by_country():
 ############ menu-bottom
 @app.route("/pages/how_to_get_scho",methods=['GET', 'POST'])
 def how_to_get_scho():
-    countries_list = countries
-    return render_template('pages/how_to_get_scho.html', countries = countries_list)
+    return render_template('pages/how_to_get_scho.html', how_to_get_scho = get_scho)
 
 @app.route("/pages/how_to_get_uni",methods=['GET', 'POST'])
 def how_to_get_uni():
-    countries_list = countries
-    return render_template('pages/how_to_get_uni.html', countries = countries_list)
+    return render_template('pages/how_to_get_uni.html', how_to_get_uni = get_uni)
 
 @app.route("/pages/myth_scho",methods=['GET', 'POST'])
 def myth_scho():
-    countries_list = countries
-    return render_template('pages/myth_scho.html', countries = countries_list)
+    return render_template('pages/myth_scho.html', myth = delete_myth)
 
 @app.route("/pages/top_uni",methods=['GET', 'POST'])
 def top_uni():
-    countries_list = countries
-    return render_template('pages/top_uni.html', countries = countries_list)
+    data = firestore.collection(u'Universities').get()
+    docs = []
+    famous_uni = []
+    index = 0
+    for fresh_data in data:
+        docs.append(fresh_data.to_dict())
+    for doc in docs:
+        current_doc = []
+        if str(doc['country']).upper() != 'true':
+            current_doc.append(doc)
+            current_doc.append(index)
+            famous_uni.append(current_doc)
+        index +=1 
+    return render_template('pages/top_uni.html', famous_uni = famous_uni)
 
 @app.route("/pages/popular_scho",methods=['GET', 'POST'])
 def popular_scho():
-    countries_list = countries
-    return render_template('pages/popular_scho.html', countries = countries_list)
+    data = firestore.collection(u'Scholarship').get()
+    docs = []
+    famous_scho = []
+    index = 0
+    for fresh_data in data:
+        docs.append(fresh_data.to_dict())
+    for doc in docs:
+        current_doc = []
+        if str(doc['country']).upper() != 'null':
+            current_doc.append(doc)
+            current_doc.append(index)
+            famous_scho.append(current_doc)
+        index +=1 
+    return render_template('pages/popular_scho.html', famous_scho = famous_scho)
 
 ################## Details
 
@@ -279,6 +301,7 @@ def saveUni_toDatabase(form, logo, picture_path):
     u'description' : u'{}'.format(request.form.get('description')),
     u'majors' : u'{}'.format(request.form.get('major')),
     u'country' : u'{}'.format(request.form.get('country')),
+    u'top' : u'{}'.format(request.form.get('top')),
     u'deadline' : form.deadline.data.strftime('%d/%m/%Y'),
     u'level' : u'{}'.format(request.form.get('level')),
     u'logo' : logoUrl,
@@ -300,6 +323,7 @@ def saveScho_toDatabase(form, logo, picture_path):
     u'country' : u'{}'.format(request.form.get('country')),
     u'condition' : u'{}'.format(request.form.get('condition')),
     u'how_to_apply' : u'{}'.format(request.form.get('how_to_apply')),
+    u'popular' : u'{}'.format(request.form.get('popular')),
     u'deadline' : form.deadline.data.strftime('%d/%m/%Y'),
     u'level' : u'{}'.format(request.form.get('level')),
     u'logo' : logoUrl,
