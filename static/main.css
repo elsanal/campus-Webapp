@@ -1,6 +1,6 @@
 body{
     align-self: center;
-    background-color:whitesmoke;
+    background-color:white;
     background-image: url(img/body_back2.jpg);
     background-position-x: right;
     background-position-y: center;
@@ -9,7 +9,7 @@ body{
 }
 .container{
     width: fit-content;
-    background-color:whitesmoke;
+    background-color:white;
     padding-bottom: 20px;
     min-width: 1100px;
 }
@@ -19,7 +19,7 @@ body{
     width: fit-content;
     min-width: 900px;
     display: block;
-    background-color:whitesmoke;
+    background-color:white;
     background-repeat: space;
     background-origin: content-box;
     background-blend-mode: lighten;
