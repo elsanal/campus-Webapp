@@ -1,12 +1,10 @@
 body{
-    
     align-self: center;
     background-color: #3F51B5;
     background-image: url(img/body_back2.jpg);
     background-position-x: right;
     background-position-y: center;
     position: relative;
-
     
 }
 .container{
@@ -22,7 +20,6 @@ body{
     min-width: 900px;
     display: block;
     background-color:transparent;
-    /* background-image: url(img/app_logo_1.png); */
     background-repeat: space;
     background-origin: content-box;
     background-blend-mode: lighten;
