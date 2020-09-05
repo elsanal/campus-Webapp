@@ -10,27 +10,29 @@ body{
     
 }
 .container{
-    min-width: 800px;
+    width: fit-content;
     background-color:whitesmoke;
     padding-bottom: 20px;
+    min-width: 1100px;
 }
 
 .top-menu-bar{
-    height: 400px;
-    width: 100%;
+    height: fit-content;
+    width: fit-content;
+    min-width: 900px;
     display: block;
-    min-width: 600px;
     background-color:transparent;
-    background-image: url(img/app_logo_1.png);
+    /* background-image: url(img/app_logo_1.png); */
     background-repeat: space;
     background-origin: content-box;
     background-blend-mode: lighten;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    /* position: fixed; */
     background-size:contain;  
 }
-.top-menu-bar ul li:hover{
+.top-menu-bar .menu ul li:hover{
+    background-color : black;
+    color: red;
+}
+.top-menu-bar .menu-2 ul li:hover{
     background-color : black;
     color: red;
 }
@@ -38,10 +40,7 @@ body{
 .top-menu-bar.menu{
     width: fit-content;
     height:fit-content;
-    padding-left: 0%;
-    position: fixed;
-    margin-top: 25px;
-    
+    position: fixed; 
 }
 
 .top-menu-bar .menu ul {
@@ -50,10 +49,8 @@ body{
 }
 .top-menu-bar .menu ul li{
 display: inline-block;
-/* margin-left: 10px; */
 padding-top: 15px;
 padding-bottom: 15px;
-/* padding-right: 15px; */
 text-align: center;
 vertical-align: middle;
 align-content: center;
@@ -69,14 +66,12 @@ align-content: center;
 .top-menu-bar .menu-2{
     width: fit-content;
     height:fit-content;
-    /* padding-left: 0%; */
-    /* position: fixed; */
-    padding-top: 70px;
 }
 
 .top-menu-bar .menu-2 ul {
     height: fit-content;
     background-color: indigo;
+    /* margin-top: 3%; */
 }
 .top-menu-bar .menu-2 ul li{
 display: inline-block;
@@ -95,6 +90,29 @@ align-content: center;
     padding: 10px;
 }
 
+.top-menu-bar .app_logo{
+    height: fit-content;
+    width: fit-content; 
+}
+
+.top-menu-bar .app_logo ul{
+    height: fit-content;
+    width: 100%;  
+}
+
+.top-menu-bar .app_logo ul li{
+    display: inline-block;
+}
+
+.top-menu-bar .app_logo ul li img{
+height: 170px;
+width: 170px;
+}
+.top-menu-bar .app_logo ul li .sp{
+    /* height: 150px; */
+    width: 120px;
+    margin-right: 110px;
+}
 
 .top-menu-bar .search-box{
  margin-top: 150px; 
@@ -159,7 +177,6 @@ align-content: center;
     /* padding-bottom: 200px; */
     /* padding-top: 200px; */
     width: 100%;
-    min-width: 600px;
    
 }
 
