@@ -42,7 +42,7 @@ class JobForm(FlaskForm):
     condition = TextAreaField('Conditions', validators = [DataRequired(),])
     position = TextAreaField('Positions', validators = [DataRequired(),])
     how_to_apply = TextAreaField('How to apply', validators = [DataRequired(),])
-    deadline = DateField('Deadline', format='%d/%m/%Y')
+    deadline = DateField('Deadline')
     submit = SubmitField('Submit')
     post_order = order
   
@@ -58,7 +58,7 @@ class UniversityForm(FlaskForm):
     logo = FileField("Upload logo", validators=[FileAllowed(['jpg', 'png', 'mp4','jpeg'])])
     web = StringField('Website url', validators = [DataRequired(), Length(min=2),])
     top = TextAreaField('is it top?', validators = [DataRequired(),])
-    deadline = DateField('Deadline', format='%d/%m/%Y')
+    deadline = DateField('Deadline')
     post_date = date
     post_order = order    
     submit = SubmitField('Submit')
@@ -75,7 +75,7 @@ class ScholarshipForm(FlaskForm):
     web = StringField('Website url', validators = [DataRequired(), Length(min=2)])
     how_to_apply = TextAreaField('How to apply', validators = [DataRequired(),])
     popular = TextAreaField('is it popular?', validators = [DataRequired(),])
-    deadline = DateField('Deadline', format='%d/%m/%Y') 
+    deadline = DateField('Deadline',) 
     post_date = date
     post_order = order   
     submit = SubmitField('Submit')

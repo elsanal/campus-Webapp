@@ -232,7 +232,9 @@ def best_uni_country(country):
 @app.route("/admin/makeScho",methods=['GET', 'POST'])
 def makeScho():
     form = ScholarshipForm()
+    print("Called  @@@@@@@@@@@@@@@@")
     if form.validate_on_submit():
+        print("Called  #########")
         flash(f'sucessfully created', 'success')
         if form.logo.data:
             print('file pciked')
@@ -270,7 +272,7 @@ def makeJob():
             print('file picked')
             picture = save_logo(form.logo.data)
             picture_path = os.path.join(app.root_path,'photos',picture)
-            saveUni_toDatabase(form, picture, picture_path)
+            saveJob_toDatabase(form, picture, picture_path)
             os.remove(picture_path)
             return redirect(url_for('home'))
     return render_template('admin/makeJob.html', form = form)
@@ -302,8 +304,7 @@ def saveUni_toDatabase(form, logo, picture_path):
     u'majors' : u'{}'.format(request.form.get('major')),
     u'country' : u'{}'.format(request.form.get('country')),
     u'top' : u'{}'.format(request.form.get('top')),
-    u'deadline' : form.deadline.data.strftime('%d/%m/%Y'),
-    u'level' : u'{}'.format(request.form.get('level')),
+    u'deadline' : form.deadline.data.strftime('%Y/%m/%d'),
     u'logo' : logoUrl,
     u'webUrl' : u'{}'.format(request.form.get('web')),
     u'date'  : u'{}'.format(form.post_date),
@@ -324,7 +325,7 @@ def saveScho_toDatabase(form, logo, picture_path):
     u'condition' : u'{}'.format(request.form.get('condition')),
     u'how_to_apply' : u'{}'.format(request.form.get('how_to_apply')),
     u'popular' : u'{}'.format(request.form.get('popular')),
-    u'deadline' : form.deadline.data.strftime('%d/%m/%Y'),
+    u'deadline' : form.deadline.data.strftime('%Y/%m/%d'),
     u'level' : u'{}'.format(request.form.get('level')),
     u'logo' : logoUrl,
     u'webUrl' : u'{}'.format(request.form.get('web')),
@@ -345,7 +346,7 @@ def saveJob_toDatabase(form, logo, picture_path):
     u'country' : u'{}'.format(request.form.get('country')),
     u'condition' : u'{}'.format(request.form.get('condition')),
     u'how_to_apply' : u'{}'.format(request.form.get('how_to_apply')),
-    u'deadline' : form.deadline.data.strftime('%d/%m/%Y'),
+    u'deadline' : form.deadline.data.strftime('%Y/%m/%d'),
     u'level' : u'{}'.format(request.form.get('level')),
     u'logo' : logoUrl,
     u'webUrl' : u'{}'.format(request.form.get('web')),
@@ -354,6 +355,6 @@ def saveJob_toDatabase(form, logo, picture_path):
     
       
 if __name__ == "__main__":
-    app.run(debug = True)
+    app.run()
 
    
