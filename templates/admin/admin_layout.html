@@ -33,15 +33,10 @@
                 <div class="top-menu-bar">
                     <div class="menu">
                         <ul>
-                            <li><a href="{{url_for('home')}}">Accueil</a></li>
-                            <li><a href="{{url_for('scholarship')}}">Bourses</a></li>
-                            <li><a href="{{url_for('university')}}">Universités</a></li>
-                            <li><a href="{{url_for('jobStage')}}">Jobs&Stages</a></li>
-                            <li><a href="{{url_for('scholarship_by_country')}}">Bourses/Pays</a></li>
-                            <li><a href="{{url_for('best_uni_by_country')}}">Universités/pays</a></li>
-                            <li><a href="{{url_for('contact')}}">Contacts</a></li>
-    
-                            <!-- <li><a href="{{url_for('login')}}">Se connecter</a></li> -->
+                            <li><a href="{{url_for('home')}}">Se deconnecter</a></li>
+                            <li><a href="{{url_for('makeScho')}}">Ajouter une bourse</a></li>
+                            <li><a href="{{url_for('makeUni')}}">Ajouter une université</a></li>
+                            <li><a href="{{url_for('makeJob')}}">Ajouter une offre d'emploi</a></li>
                         </ul>
                     </div>
                     <div class="app_logo">
@@ -67,31 +62,11 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="menu-2">
-                        <ul>
-                            <li><a href="{{url_for('how_to_get_scho')}}">Comment avoir une bourse</a></li>
-                            <li><a href="{{url_for('how_to_get_uni')}}">Comment avoir une université</a></li>
-                            <li><a href="{{url_for('myth_scho')}}">Les mythes derriere les bourses</a></li>
-                            <li><a href="{{url_for('popular_scho')}}">Les bourses populaires</a></li>
-                            <li><a href="{{url_for('top_uni')}}">Top universités</a></li>
-                        </ul>
-                    </div> 
               </div>    
             </header>
             <div class="content">
-                <div class="icon">
-                    <ul>
-                        <li><a href="{{url_for('login')}}" role="button">login</a></li>
-                        <li>|</li>
-                        <li>Suivez nous sur les reseaux sociaux : </li>
-                        <li><a href="https://www.facebook.com/Top2TopBest" target="new"><img src="{{url_for('static', filename='img/facebook.jpg')}}"></a></li>
-                        <li><a href="https://chat.whatsapp.com/Hes9l5bH5Vg2xxFwU1mTBJ" target="new"><img src="{{url_for('static', filename='img/whatsapp.jpg')}}"></a></li>
-                        <li><a href="https://www.youtube.com/channel/UCznjjnUE9kvHlg_pBobDm5Q?view_as=subscriber" target="new"><img src="{{url_for('static', filename='img/youtube.jpg')}}"></a></li>
-                        <!-- <li><a href="{{url_for('contact')}}" target="new"><img src="{{url_for('static', filename='img/wechat.jpg')}}"></a></li>
-                        <li><a href="{{url_for('contact')}}" target="new"><img src="{{url_for('static', filename='img/gmail.jpg')}}"></li>    -->
-                    </ul>
-                </div>
                 {% block content %}
+                    <div class="admin">Admin page</div>
                 {% endblock content %}
             </div>
                 
@@ -103,7 +78,5 @@
         </div>    
     </body>
 </html>
-
-
 
 

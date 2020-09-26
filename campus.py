@@ -14,7 +14,7 @@ from advice import get_scho, get_uni, delete_myth
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '20fe18bd517a11a1e26759b5664882b0'
-cred = credentials.Certificate("firebase-sdk.json")
+cred = credentials.Certificate("/Users/sanaaloute/important_files/campus_firebase-sdk.json")
 firebase_admin.initialize_app(cred)
 firestore = firestore.client()
 
@@ -61,16 +61,6 @@ def about():
     form = CalendarForm
     return render_template('index/about.html', title = "About", form = form)
 
-################### authentification
-
-@app.route("/auth/login",methods=['GET', 'POST'])
-def login():
-    return render_template('auth/login.html', title = "login")
-
-
-@app.route("/auth/register",methods=['GET', 'POST'])
-def register():
-    return render_template('auth/register.html')
 
 ################ Scholarship
 @app.route("/pages/scholarship",methods=['GET', 'POST'])
@@ -228,6 +218,34 @@ def best_uni_country(country):
 
            ########  Admin upload to database ################  
 
+@app.route("/admin/admin_layout",methods=['GET', 'POST'])
+def admin_layout():
+    return render_template('admin/admin_layout.html')
+
+################### authentification
+
+@app.route("/admin/signOut",methods=['GET', 'POST'])
+def signOut():
+    return render_template('index/home.html')
+
+
+@app.route("/auth/login",methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        data = firestore.collection(u'admin').get()
+        docs = []
+        for id in data:
+             docs.append(id.to_dict())
+        print(docs[0]['id'])
+        print(docs[0]['password'])
+        if u'{}'.format(request.form.get('password'))==docs[0]['password'] and u'{}'.format(request.form.get('email'))==docs[0]['id']:
+            return redirect(url_for('admin_layout'))
+        else:
+            print("You can't login")
+    return render_template('auth/login.html', title = "login", form=form)
+
+
 ########### upload new scholarship
 @app.route("/admin/makeScho",methods=['GET', 'POST'])
 def makeScho():
@@ -242,7 +260,7 @@ def makeScho():
             picture_path = os.path.join(app.root_path,'photos',picture)
             saveScho_toDatabase(form, picture, picture_path)
             os.remove(picture_path)
-            return redirect(url_for('home'))
+            return redirect(url_for('admin_layout'))
     return render_template('admin/makeScho.html', form = form)
 
 ########## upload new University
@@ -258,7 +276,7 @@ def makeUni():
             picture_path = os.path.join(app.root_path,'photos',picture)
             saveUni_toDatabase(form, picture, picture_path)
             os.remove(picture_path)
-            return redirect(url_for('home'))
+            return redirect(url_for('admin_layout'))
     return render_template('admin/makeUni.html',form = form)
 
 ######### Make a new Job
@@ -274,7 +292,7 @@ def makeJob():
             picture_path = os.path.join(app.root_path,'photos',picture)
             saveJob_toDatabase(form, picture, picture_path)
             os.remove(picture_path)
-            return redirect(url_for('home'))
+            return redirect(url_for('admin_layout'))
     return render_template('admin/makeJob.html', form = form)
 
 
@@ -355,6 +373,6 @@ def saveJob_toDatabase(form, logo, picture_path):
     
       
 if __name__ == "__main__":
-    app.run()
+    app.run(debug = True)
 
    
