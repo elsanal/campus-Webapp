@@ -14,7 +14,7 @@ from advice import get_scho, get_uni, delete_myth
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '20fe18bd517a11a1e26759b5664882b0'
-cred = credentials.Certificate("/Users/sanaaloute/important_files/campus_firebase-sdk.json")
+cred = credentials.Certificate("campus_firebase-sdk.json")
 firebase_admin.initialize_app(cred)
 firestore = firestore.client()
 
