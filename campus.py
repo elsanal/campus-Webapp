@@ -344,6 +344,7 @@ def saveScho_toDatabase(form, logo, picture_path):
     u'how_to_apply' : u'{}'.format(request.form.get('how_to_apply')),
     u'popular' : u'{}'.format(request.form.get('popular')),
     u'deadline' : form.deadline.data.strftime('%Y/%m/%d'),
+    u'year' : u'{}'.format(request.form.ge('year')),
     u'level' : u'{}'.format(request.form.get('level')),
     u'logo' : logoUrl,
     u'webUrl' : u'{}'.format(request.form.get('web')),
