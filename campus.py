@@ -328,7 +328,7 @@ def saveScho_toDatabase(form, logo, picture_path):
     logoUrl = firebase.storage().child('Scholarship').child(logo).get_url(None)
     docRef = firestore.collection(u'Scholarship')
     docRef.add({
-    u'name' : u'{}'.format(request.form.get('name')),
+    u'name' : u'{}'.format(request.form.get('scholarship_name')),
     u'description' : u'{}'.format(request.form.get('description')),
     u'advantage' : u'{}'.format(request.form.get('advantage')),
     u'country' : u'{}'.format(request.form.get('country')),
