@@ -75,7 +75,7 @@ class ScholarshipForm(FlaskForm):
     web = StringField('Website url', validators = [DataRequired(), Length(min=2)])
     how_to_apply = TextAreaField('How to apply', validators = [DataRequired(),])
     popular = TextAreaField('is it popular?', validators = [DataRequired(),])
-    web = StringField('year', validators = [DataRequired(), Length(min=2)])
+    year = StringField('year', validators = [DataRequired(), Length(min=2)])
     deadline = DateField('Deadline',) 
     post_date = date
     post_order = order   

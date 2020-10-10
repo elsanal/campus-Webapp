@@ -250,12 +250,8 @@ def login():
 @app.route("/admin/makeScho",methods=['GET', 'POST'])
 def makeScho():
     form = ScholarshipForm()
-    print("Called  @@@@@@@@@@@@@@@@")
     if form.validate_on_submit():
-        print("Called  #########")
-        flash(f'sucessfully created', 'success')
         if form.logo.data:
-            print('file pciked')
             picture = save_logo(form.logo.data)
             picture_path = os.path.join(app.root_path,'photos',picture)
             saveScho_toDatabase(form, picture, picture_path)
@@ -268,8 +264,6 @@ def makeScho():
 def makeUni():
     form = UniversityForm()
     if form.validate_on_submit():
-        print('this is a new uni')
-        flash(f'sucessfully created', 'success')
         if form.logo.data:
             print('file pciked')
             picture = save_logo(form.logo.data)
@@ -284,8 +278,6 @@ def makeUni():
 def makeJob():
     form = JobForm()
     if form.validate_on_submit():
-        print('this is a new uni')
-        flash(f'sucessfully created', 'success')
         if form.logo.data:
             print('file picked')
             picture = save_logo(form.logo.data)
