@@ -1,0 +1,22 @@
+{% extends "admin/admin_layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {{form.hidden_tag()}}
+            <legend class="bottom-border">New Job</legend>
+            <fieldset class="form-group">
+                <div class="form-group">
+                    {{form.video_title.label(class="form-control-label")}}
+                    {{form.video_title(class="form-control form-control-label")}}
+                </div>
+                <div class="form-group">
+                    {{form.url.label(class="form-control-label")}}
+                    {{form.url(class="form-control form-control-label")}}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{form.submit(class="btn btn-outline-info")}}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

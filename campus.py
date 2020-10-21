@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request,redirect, flash
-from forms import RegisterForm, LoginForm, JobForm, UniversityForm, ScholarshipForm, CalendarForm
+from forms import RegisterForm, LoginForm, JobForm, UniversityForm, ScholarshipForm, CalendarForm, VideoForm
 import os, secrets
 from PIL import Image
 Image.MAX_IMAGE_PIXELS = None
@@ -287,6 +287,14 @@ def makeJob():
             return redirect(url_for('admin_layout'))
     return render_template('admin/makeJob.html', form = form)
 
+######### Make a new Video
+@app.route("/admin/makeVideo",methods=['GET', 'POST'])
+def makeVideo():
+    form = VideoForm()
+    if form.validate_on_submit():
+        saveVideo_toDatabase(form)
+        return redirect(url_for('admin_layout'))
+    return render_template('admin/makeVideo.html', form = form)
 
 ####### Resize and save picture
 def save_logo(form_pic):
@@ -367,7 +375,16 @@ def saveJob_toDatabase(form, logo, picture_path):
     u'logo' : logoUrl,
     u'webUrl' : u'{}'.format(request.form.get('web')),
     u'order': u'{}'.format(form.post_order),
-    })     
+    })   
+    
+      ################## Save video to DB  
+def saveVideo_toDatabase(form):
+    docRef = firestore.collection(u'youtube')
+    docRef.add({
+    u'name' : u'{}'.format(request.form.get('video_title')),
+    u'webUrl' : u'{}'.format(request.form.get('url')),
+    u'order': u'{}'.format(form.post_order),
+    })   
     
       
 if __name__ == "__main__":

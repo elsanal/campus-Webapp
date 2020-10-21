@@ -86,6 +86,14 @@ class ScholarshipForm(FlaskForm):
     post_date = date
     post_order = order   
     submit = SubmitField('Submit')
-    
+
+########## Upload a Job
+class VideoForm(FlaskForm):
+    video_title = StringField('Video title', validators = [DataRequired(), Length(min=2)])
+    url = StringField('video url', validators = [DataRequired(), Length(min=2)])
+    post_order = order  
+    submit = SubmitField('Submit')
+  
+  
 class CalendarForm(FlaskForm):
     calendar = calendar.calendar(2017)    
