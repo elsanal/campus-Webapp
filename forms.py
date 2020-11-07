@@ -60,7 +60,6 @@ class UniversityForm(FlaskForm):
     web = StringField('Website url', validators = [DataRequired(), Length(min=2),])
     top = StringField('is it top?', validators = [DataRequired(),])
     free = StringField('is it free?', validators = [DataRequired(),])
-    deadline = DateField('Deadline')
     post_date = date
     post_order = order    
     submit = SubmitField('Submit')

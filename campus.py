@@ -323,7 +323,6 @@ def saveUni_toDatabase(form, logo, picture_path):
     u'country' : u'{}'.format(request.form.get('country')),
     u'top' : u'{}'.format(request.form.get('top')),
     u'free' : u'{}'.format(request.form.get('free')),
-    u'deadline' : form.deadline.data.strftime('%Y/%m/%d'),
     u'logo' : logoUrl,
     u'webUrl' : u'{}'.format(request.form.get('web')),
     u'date'  : u'{}'.format(form.post_date),
