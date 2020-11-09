@@ -341,7 +341,7 @@ def saveScho_toDatabase(form, logo, picture_path):
     u'advantage' : u'{}'.format(request.form.get('advantage')),
     u'country' : u'{}'.format(request.form.get('country')),
     u'condition' : u'{}'.format(request.form.get('condition')),
-    u'how_to_apply_text' : u'{}'.format(request.form.get('how_to_apply_text')),
+    u'how_to_apply' : u'{}'.format(request.form.get('how_to_apply_text')),
     u'how_to_apply_video' : u'{}'.format(request.form.get('how_to_apply_video')),
     u'popular' : u'{}'.format(request.form.get('popular')),
     u'deadline' : form.deadline.data.strftime('%Y/%m/%d'),
