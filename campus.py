@@ -303,7 +303,7 @@ def save_logo(form_pic):
     picture_name = random_hex + file_ext
     picture_path = os.path.join(app.root_path,'photos',picture_name)
     form_pic.save(picture_path)
-    out_size = (500,800)
+    out_size = (800,1000)
     image = Image.open(form_pic)
     image.thumbnail(out_size)
     image.save(picture_path)
